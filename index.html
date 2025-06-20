@@ -1,1 +1,461 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>🛍️ M-BLITHE คอนซีลเลอร์</title>
+  <!-- AdSense meta (ใหม่!) -->
+  <meta name="google-adsense-account" content="ca-pub-7416292559334504">
+  <!-- AdSense script (ใส่ใน head ครั้งเดียวพอ) -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7416292559334504"
+     crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Facebook Pixel & TikTok Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,
+    'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '127978927946856');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"
+  /></noscript>
+  <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject = t;
+      var ttq = w[t] = w[t] || [];
+      ttq.methods = ["page","track"];
+      ttq.setAndDefer = function (t, e) {
+        t[e] = function () {
+          t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+        }
+      };
+      for (var i = 0; i < ttq.methods.length; i++) {
+        ttq.setAndDefer(ttq, ttq.methods[i]);
+      }
+      ttq.load = function (e, n) {
+        var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+        ttq._i = ttq._i || {};
+        ttq._i[e] = [];
+        ttq._t = ttq._t || {};
+        ttq._t[e] = +new Date;
+        ttq._o = ttq._o || {};
+        ttq._o[e] = n || {};
+        var o = document.createElement("script");
+        o.type = "text/javascript";
+        o.async = true;
+        o.src = i + "?sdkid=" + e + "&lib=" + t;
+        var a = document.getElementsByTagName("script")[0];
+        a.parentNode.insertBefore(o, a);
+      };
+      ttq.load('D0EVS2JC77U9C23772EG');
+      ttq.page();
+    }(window, document, 'ttq');
+  </script>
+  <style>
+    :root {
+      --primary-color: #fe2c55;
+      --dark-text: #161823;
+      --light-text: #747474;
+      --background-color: #f1f1f2;
+      --white-color: #ffffff;
+      --border-color: #e8e8e8;
+      --trust-bg: #fff3d6;
+      --trust-color: #e65c00;
+    }
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: var(--background-color);
+      margin: 0;
+      padding: 0;
+      padding-bottom: 80px;
+      color: var(--dark-text);
+    }
+    .trust-banner {
+      background: var(--trust-bg);
+      color: var(--trust-color);
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.03rem;
+      padding: 9px 0 7px 0;
+      letter-spacing: .1px;
+      border-bottom: 1px solid #ffe5ae;
+    }
+    .scarcity-box {
+      background: #fdf5f8;
+      border: 1px dashed #fe2c55;
+      border-radius: 9px;
+      text-align: center;
+      font-size: 1.04rem;
+      font-weight: 600;
+      margin: 14px 0 0 0;
+      color: #fe2c55;
+      padding: 7px 8px 5px 8px;
+      animation: shake .8s infinite alternate;
+    }
+    @keyframes shake {
+      0% { transform: translateY(0);}
+      80% { transform: translateY(-1px);}
+      100% { transform: translateY(2px);}
+    }
+    .product-gallery img { width: 100%; display: block; }
+    .content-padding {
+      padding: 12px 15px;
+      background-color: var(--white-color);
+      margin-bottom: 10px;
+    }
+    .price-section { display: flex; align-items: center; gap: 10px; }
+    .price-section .current-price {
+      color: var(--primary-color); font-size: 1.8rem; font-weight: 700;
+    }
+    .price-section .original-price {
+      color: var(--light-text); text-decoration: line-through; font-size: 1rem;
+    }
+    .product-title {
+      font-size: 1.2rem; font-weight: 600; line-height: 1.4; margin-top: 5px;
+    }
+    .sales-info { font-size: 0.9rem; color: var(--light-text); margin-top: 8px; }
+    .info-row {
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 1rem; font-weight: 500; padding: 15px 0;
+      border-bottom: 1px solid var(--border-color); cursor: pointer;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-row .fa-chevron-right { color: var(--light-text); }
+    .info-row .label { color: var(--light-text); font-weight: 400; margin-right: 10px; }
+    .shop-info { display: flex; align-items: center; gap: 12px; }
+    .shop-info .avatar {
+      width: 50px; height: 50px; border-radius: 50%; background-color: #ccc;
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+      color: var(--white-color); background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+    .shop-info .shop-name { font-weight: 600; }
+    .product-details h3, .reviews-section h3 {
+      font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;
+    }
+    .feature-item {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95rem;
+    }
+    .feature-item .icon { font-size: 1.2rem; color: #00b900; }
+    .review { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px; }
+    .review:last-child { border-bottom: none; margin-bottom: 0; }
+    .review-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .review-header .stars { color: #f9d71c; }
+    .review-header .author { font-weight: 500; font-size: 0.9rem; }
+    .review-text { font-size: 0.95rem; line-height: 1.5; }
+    .customer-photos {
+      display: flex; gap: 8px; justify-content: center; margin: 12px 0 18px 0;
+    }
+    .customer-photos img {
+      width: 60px; height: 60px; object-fit: cover; border-radius: 50%; border: 2px solid #ffe5ae;
+    }
+    .guarantee-box {
+      text-align: center; color: #ff5722; font-weight: 600; margin-bottom: 9px;
+      background: #fff6f2; padding: 7px 12px; border-radius: 8px;
+    }
+    .steps-box {
+      background: #f6faff; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;
+      font-size: 1.01rem;
+    }
+    .sticky-footer {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background-color: var(--white-color);
+      border-top: 1px solid var(--border-color);
+      display: flex; padding: 8px; box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+      z-index: 1000;
+    }
+    .sticky-footer .icon-btn {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      width: 18%; font-size: 0.75rem; color: var(--dark-text); text-decoration: none;
+    }
+    .sticky-footer .icon-btn i { font-size: 1.5rem; margin-bottom: 2px; }
+    .sticky-footer .action-buttons { flex-grow: 1; display: flex; gap: 8px; }
+    .sticky-footer .action-buttons button {
+      flex-grow: 1; border: none; border-radius: 6px; padding: 12px 5px;
+      font-size: 1rem; font-weight: 600; font-family: 'Kanit', sans-serif; cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .sticky-footer .action-buttons button:active { opacity: 0.8; }
+    .sticky-footer .action-buttons .buy-now { background-color: var(--primary-color); color: var(--white-color);}
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5); z-index: 2000;
+      display: none; justify-content: flex-end; flex-direction: column;
+    }
+    .modal-content {
+      background-color: var(--white-color); border-radius: 12px 12px 0 0; padding: 20px;
+      animation: slideUp 0.3s ease-out; max-height: 90vh; overflow-y: auto;
+    }
+    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    .modal-header {
+      display: flex; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); align-items: flex-end;
+    }
+    .modal-header img {
+      width: 100px; height: 100px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);
+    }
+    .modal-price { color: var(--primary-color); font-size: 1.5rem; font-weight: 700;}
+    .modal-selection-text { font-size: 0.9rem; color: var(--light-text); margin-top: 4px; }
+    .modal-section { padding: 15px 0; border-bottom: 1px solid var(--border-color);}
+    .modal-section h4 { font-size: 1rem; font-weight: 600; margin: 0 0 10px 0;}
+    .options-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    .option-btn {
+      background-color: var(--background-color); border: 1px solid var(--border-color);
+      color: var(--dark-text); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+    }
+    .option-btn.selected {
+      background-color: #ffe8eb; border-color: var(--primary-color); color: var(--primary-color); font-weight: 500;
+    }
+    #orderForm label { font-size: 1rem; font-weight: 600; display: block; margin-bottom: 8px; margin-top: 15px; }
+    #orderForm input, #orderForm textarea {
+      width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
+    }
+    .modal-submit-btn {
+      width: 100%; background-color: var(--primary-color); color: var(--white-color); border: none; padding: 15px; border-radius: 6px;
+      font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 15px; font-family: 'Kanit', sans-serif;
+    }
+    .modal-submit-btn:disabled { background-color: #ccc; cursor: not-allowed; }
+    .close-btn {
+      position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--light-text); cursor: pointer;
+    }
+    #successPopup {
+      display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(0,0,0,0.7); color: white; padding: 20px 30px; border-radius: 12px;
+      z-index: 9999; text-align: center; font-size: 1rem;
+    }
+    #successPopup i { font-size: 2rem; margin-bottom: 10px; color: #4CAF50; }
+  </style>
+</head>
+<body>
 
+  <!-- TRUST BANNER -->
+  <div class="trust-banner">
+    ✅ ของแท้ 100% | เก็บเงินปลายทาง | รีวิวลูกค้ากว่า 9,000+ คน
+  </div>
+
+  <div class="product-gallery">
+    <img src="photo_2025-06-10_00-30-00.jpg" alt="M-BLITHE คอนซีลเลอร์">
+  </div>
+
+  <div class="content-padding">
+    <div class="price-section">
+      <span class="current-price">฿299</span>
+      <span class="original-price">฿390</span>
+    </div>
+    <h1 class="product-title">✨ M-BLITHE คอนซีลเลอร์ ปกปิดเรียบเนียน กันน้ำ กันเหงื่อ</h1>
+    <div class="sales-info">
+      <i class="fa-solid fa-star" style="color: #f9d71c;"></i> 4.9/5 | ขายแล้ว 9k+ ชิ้น
+    </div>
+    <div class="scarcity-box">
+      เหลือโปรนี้อีก 7 ชิ้น! <span style="color:#161823;font-size:0.93rem;">ส่งฟรีวันนี้เท่านั้น</span>
+    </div>
+  </div>
+
+  <div class="content-padding">
+    <div class="info-row" id="options-trigger">
+      <span><span class="label">ตัวเลือก:</span><span id="selected-option-text">โปรดเลือกเฉดสี</span></span>
+      <i class="fas fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <div class="content-padding shop-info">
+    <div class="avatar">MB</div>
+    <div class="shop-details">
+      <div class="shop-name">M-BLITHE Official</div>
+      <a href="https://lin.ee/wKelfsp" target="_blank" style="text-decoration: none; color: var(--light-text); font-size: 0.9rem;">
+        <i class="fa-brands fa-line" style="color: #00b900;"></i> สอบถามทาง LINE
+      </a>
+    </div>
+  </div>
+
+  <div class="content-padding guarantee-box">
+    🏅 รับประกันความพอใจ!
+  </div>
+
+  <div class="content-padding steps-box">
+    <b>สั่งซื้อคอนซีลเลอร์ใน 3 ขั้นตอน</b><br>
+    1. เลือกเฉดสี<br>
+    2. กรอกข้อมูลจัดส่ง<br>
+    3. รอเจ้าหน้าที่ติดต่อยืนยัน
+  </div>
+
+  <div class="content-padding product-details">
+    <h3><i class="fa-solid fa-circle-info"></i> รายละเอียดสินค้า</h3>
+    <div class="feature-item"><span class="icon">✅</span>ปกปิดขั้นสุด เรียบเนียน ไม่เห็นรอย</div>
+    <div class="feature-item"><span class="icon">💦</span>กันน้ำ กันเหงื่อ ติดทนนานตลอดวัน</div>
+    <div class="feature-item"><span class="icon">✨</span>เนื้อบางเบา ไม่หนักหน้า ไม่ตกร่อง</div>
+    <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน
+    </div>
+  </div>
+
+  <div class="content-padding reviews-section">
+    <h3><i class="fa-solid fa-comments"></i> รีวิวจากลูกค้า (9,000+)</h3>
+    <div class="review">
+      <div class="review-header">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="author">P***a</span>
+      </div>
+      <p class="review-text">ปกปิดดีเยี่ยม เนื้อเนียน ไม่เป็นคราบ ใช้แล้วชอบมากค่ะ 🥰 ส่งเร็วมากค่ะ</p>
+    </div>
+    <div class="review">
+      <div class="review-header">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="author">K***n</span>
+      </div>
+      <p class="review-text">ชอบมากค่ะตัวนี้ ใช้มาหลายแท่งแล้ว ติดทนดีมาก หน้ามันก็ไม่หลุด</p>
+    </div>
+  </div>
+
+  <!-- วาง Banner Google AdSense ที่นี่ -->
+  <div style="width:100%; max-width:400px; margin:18px auto 14px auto; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.07); background:#fff;">
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; min-height:100px;"
+         data-ad-client="ca-pub-7416292559334504"
+         data-ad-slot="YOUR_AD_SLOT"
+         data-ad-format="auto"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+  <!-- /Banner AdSense -->
+
+  <footer class="sticky-footer">
+    <a href="https://lin.ee/wKelfsp" target="_blank" class="icon-btn">
+      <i class="fa-brands fa-rocketchat"></i>
+      <span>แชท</span>
+    </a>
+    <div class="action-buttons">
+      <button class="buy-now" id="buyNowBtn">ซื้อตอนนี้</button>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="buyNowModal">
+    <div class="modal-content">
+      <i class="fas fa-times close-btn" id="closeModalBtn"></i>
+      <div class="modal-header">
+        <img src="photo_2025-06-10_00-30-00.jpg" alt="Product Thumbnail">
+        <div>
+          <div class="modal-price">฿299.00</div>
+          <div class="modal-selection-text">ตัวเลือก: <span id="modal-selected-option-text">-</span></div>
+        </div>
+      </div>
+      <form id="orderForm" onsubmit="sendOrderToSheet(event);">
+        <div class="modal-section">
+          <h4>เฉดสี</h4>
+          <div class="options-container" id="optionsContainer"></div>
+          <input type="hidden" name="product" id="productInput" required>
+        </div>
+        <div class="modal-section">
+          <h4>ข้อมูลการจัดส่ง</h4>
+          <label for="name">ชื่อ-นามสกุล</label>
+          <input type="text" id="name" name="name" required placeholder="กรอกชื่อ-นามสกุล">
+          <label for="phone">เบอร์โทรศัพท์</label>
+          <input type="text" id="phone" name="phone" required placeholder="ตัวอย่าง: 0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทรศัพท์ 10 หลัก">
+          <label for="address">ที่อยู่จัดส่ง</label>
+          <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
+        </div>
+        <button type="submit" class="modal-submit-btn" id="submitBtn">ยืนยัน</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="successPopup">
+    <i class="fas fa-check-circle"></i>
+    <p>สั่งซื้อสำเร็จ!</p>
+    <span>เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยัน</span>
+  </div>
+
+  <script>
+    const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxvkT44c1V26IyzQW_4FhR4iQ0gmrNvdhF5TnneqNZ-21JXFczyZBo-8EFzhA69WshT/exec';
+    const products = [
+      { id: 'B01', text: 'B01 - ผิวขาวเหลือง' },
+      { id: 'B02', text: 'B02 - ผิวสองสีขาวเหลือง' },
+      { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ' },
+      { id: 'B03', text: 'B03 - ผิวคล้ำ' }
+    ];
+    const buyNowModal = document.getElementById('buyNowModal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+    const buyNowBtn = document.getElementById('buyNowBtn');
+    const optionsTrigger = document.getElementById('options-trigger');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const selectedOptionText = document.getElementById('selected-option-text');
+    const modalSelectedOptionText = document.getElementById('modal-selected-option-text');
+    const productInput = document.getElementById('productInput');
+    let selectedProduct = null;
+    // Populate product options
+    products.forEach(product => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn';
+      btn.textContent = product.text;
+      btn.dataset.value = `${product.text} - 299 บาท`;
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedProduct = btn.dataset.value;
+        productInput.value = selectedProduct;
+        selectedOptionText.textContent = product.text;
+        modalSelectedOptionText.textContent = product.text;
+      });
+      optionsContainer.appendChild(btn);
+    });
+    function openModal() { buyNowModal.style.display = 'flex'; }
+    function closeModal() { buyNowModal.style.display = 'none'; }
+    buyNowBtn.addEventListener('click', openModal);
+    optionsTrigger.addEventListener('click', openModal);
+    closeModalBtn.addEventListener('click', closeModal);
+    buyNowModal.addEventListener('click', (event) => {
+      if (event.target === buyNowModal) { closeModal(); }
+    });
+    function sendOrderToSheet(event) {
+      event.preventDefault();
+      if (!selectedProduct) {
+        alert('กรุณาเลือกเฉดสีก่อนค่ะ!');
+        return;
+      }
+      const orderForm = document.getElementById('orderForm');
+      const submitButton = document.getElementById('submitBtn');
+      const originalButtonText = submitButton.textContent;
+      submitButton.disabled = true;
+      submitButton.textContent = 'กำลังส่งข้อมูล...';
+      const formData = new FormData(orderForm);
+      formData.set("order_id", 'ORD-' + Date.now());
+      fetch(GOOGLE_SHEET_WEB_APP_URL, {
+        method: "POST", body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+        if (data.result === 'success') {
+          fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
+          ttq.track('CompletePayment');
+          closeModal();
+          orderForm.reset();
+          selectedOptionText.textContent = 'โปรดเลือกเฉดสี';
+          document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
+          selectedProduct = null;
+          // Show success popup
+          const successPopup = document.getElementById('successPopup');
+          successPopup.style.display = 'block';
+          setTimeout(() => { successPopup.style.display = 'none'; }, 3000);
+        } else {
+          alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่ทราบสาเหตุ'));
+        }
+      })
+      .catch(err => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalButtonText;
+        alert("เกิดข้อผิดพลาดในการส่งข้อมูล: " + err.message);
+        console.error("Fetch Error:", err);
+      });
+    }
+  </script>
+</body>
+</html>
