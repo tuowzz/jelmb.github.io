@@ -29,12 +29,15 @@
       font-weight: 700;
       font-size: 1.2rem;
       box-shadow: 0 2px 8px rgba(238,77,45,.08);
+      letter-spacing: 0.7px;
     }
     .product-card {
       background: #fff;
-      margin: 18px auto 10px auto;
+      margin: 24px auto 10px auto;
       border-radius: 12px;
-      max-width: 420px;
+      width: 100%;
+      max-width: 440px;
+      min-width: 0;
       box-shadow: 0 1px 8px rgba(0,0,0,.06);
       padding: 0 0 15px 0;
       border: 1.5px solid var(--border);
@@ -62,44 +65,44 @@
       letter-spacing: .7px;
     }
     .product-details {
-      padding: 17px 16px 5px 16px;
+      padding: 21px 22px 5px 22px;
     }
     .product-title {
-      font-size: 1.16rem;
+      font-size: 1.27rem;
       font-weight: 700;
       color: #222;
       margin-bottom: 7px;
     }
     .rating-row {
       color: #ffb400;
-      font-size: 1.03rem;
-      margin-bottom: 6px;
+      font-size: 1.08rem;
+      margin-bottom: 7px;
     }
     .price-row {
-      font-size: 1.45rem;
+      font-size: 1.58rem;
       font-weight: 700;
       color: var(--shopee-orange);
       margin-bottom: 7px;
-      display: flex; align-items: end; gap: 11px;
+      display: flex; align-items: end; gap: 13px;
     }
     .price-row .old-price {
-      color: #888; font-size: 1.08rem;
+      color: #888; font-size: 1.18rem;
       text-decoration: line-through;
       font-weight: 400;
     }
     .badges {
-      margin-bottom: 6px;
+      margin-bottom: 7px;
     }
     .badge {
       display: inline-block;
-      font-size: .95rem;
+      font-size: 1rem;
       background: #ffe5d2;
       color: var(--shopee-orange);
       border-radius: 5px;
-      padding: 2px 10px;
-      margin-right: 5px;
+      padding: 2px 12px;
+      margin-right: 6px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 5px;
     }
     .scarcity {
       background: #fff7ed;
@@ -107,55 +110,53 @@
       color: var(--shopee-orange);
       font-weight: 700;
       text-align: center;
-      font-size: 1.01rem;
+      font-size: 1.07rem;
       border-radius: 6px;
-      margin: 7px 0 13px 0;
-      padding: 7px;
-      animation: shake .9s infinite alternate;
+      margin: 8px 0 14px 0;
+      padding: 9px;
+      animation: shake .95s infinite alternate;
     }
     @keyframes shake {
       0% { transform: translateY(0);}
       80% { transform: translateY(-1px);}
       100% { transform: translateY(2px);}
     }
-    .shade-selector {
-      margin: 10px 0 13px 0;
-      display: flex;
-      gap: 7px;
-      flex-wrap: wrap;
+    .options-container {
+      display: flex; gap: 9px; margin: 13px 0 11px 0; flex-wrap: wrap;
     }
-    .shade-btn {
+    .option-btn {
       border: 2px solid #eee;
       border-radius: 8px;
       background: #fff;
-      font-size: 1.03rem;
+      font-size: 1.07rem;
       font-weight: 700;
       color: #222;
-      padding: 7px 17px;
+      padding: 8px 19px;
       cursor: pointer;
       transition: border 0.14s, background 0.13s, color 0.13s;
+      outline: none;
     }
-    .shade-btn.selected {
+    .option-btn.selected {
       border-color: var(--shopee-orange);
       background: #ffe5d2;
       color: var(--shopee-orange);
       box-shadow: 0 1px 7px #ffd2bb44;
     }
     .product-actions {
-      margin-top: 17px;
+      margin-top: 22px;
     }
     .buy-btn, .line-btn {
       display: inline-block;
       width: 100%;
-      padding: 15px 0;
-      font-size: 1.17rem;
+      padding: 17px 0;
+      font-size: 1.18rem;
       font-weight: 700;
       border-radius: 9px;
       border: none;
-      margin-bottom: 9px;
+      margin-bottom: 12px;
       cursor: pointer;
       transition: background .16s;
-      box-shadow: 0 1px 6px #eee;
+      box-shadow: 0 1px 7px #eee;
       letter-spacing: .03em;
     }
     .buy-btn {
@@ -169,18 +170,18 @@
     }
     .line-btn:active { background: #0d9c45;}
     .benefits-list {
-      margin: 11px 0 7px 0;
-      font-size: .98rem;
+      margin: 16px 0 10px 0;
+      font-size: 1.05rem;
     }
     .benefits-list li {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     .review-box {
       background: #fdf7f2;
-      border-radius: 7px;
-      margin: 7px 0;
-      padding: 12px;
-      font-size: .97rem;
+      border-radius: 8px;
+      margin: 10px 0;
+      padding: 15px;
+      font-size: 1.07rem;
       color: #222;
     }
     .review-header { color: #ffb400; font-weight: 600;}
@@ -189,29 +190,27 @@
       background: #fff;
       border-top: 1.5px solid #f2cbb4;
       display: flex;
-      max-width: 420px;
+      max-width: 440px;
+      width: 100%;
       margin: auto;
       z-index: 20;
-      height: 60px;
+      height: 70px;
       box-shadow: 0 -2px 16px 0 #ffd4bb55;
     }
     .footer-bar .line-btn,
     .footer-bar .buy-btn {
       height: 100%; margin: 0; border-radius: 0;
-      font-size: 1.09rem;
+      font-size: 1.14rem;
+      padding: 0;
     }
-    .footer-bar .line-btn { width: 41%; }
-    .footer-bar .buy-btn { width: 59%; }
-    @media (max-width: 480px) {
-      .product-card, .footer-bar { max-width: 100vw; }
-      .product-details { padding: 13px 7px 5px 7px;}
-    }
-    /* Modal / Popup */
+    .footer-bar .line-btn { width: 40%; }
+    .footer-bar .buy-btn { width: 60%; }
+    /* Modal Responsive */
     .modal-overlay {
       position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
       background: rgba(0,0,0,0.41); z-index: 9999;
-      display: none; flex-direction: column; justify-content: flex-end;
-      animation: fadeInBg 0.2s;
+      display: none; justify-content: center; align-items: center;
+      animation: fadeInBg 0.22s;
     }
     @keyframes fadeInBg {
       from { background: rgba(0,0,0,0.0);}
@@ -219,72 +218,61 @@
     }
     .modal-content {
       background: #fff;
-      border-radius: 15px 15px 0 0;
-      max-width: 420px;
-      width: 100vw;
-      margin: auto;
-      padding: 22px 17px 18px 17px;
-      box-shadow: 0 2px 18px #0002;
+      border-radius: 17px;
+      width: 96vw;
+      max-width: 410px;
+      box-shadow: 0 3px 26px #0004;
       position: relative;
-      animation: slideUp .19s cubic-bezier(0.4,1.13,0.41,1.32);
+      padding: 27px 23px 17px 23px;
+      animation: slideUp .21s cubic-bezier(0.4,1.13,0.41,1.32);
+      margin: 0 auto;
+      display: flex; flex-direction: column;
     }
     @keyframes slideUp { from { transform: translateY(30%); opacity:0 } to { transform: translateY(0); opacity:1} }
     .close-btn {
-      position: absolute; top: 13px; right: 15px; font-size: 1.6rem; color: #b5b5b5; cursor: pointer; z-index: 10;
+      position: absolute; top: 13px; right: 15px; font-size: 1.7rem; color: #b5b5b5; cursor: pointer; z-index: 10;
     }
     .modal-header {
-      display: flex; gap: 16px; align-items: center; border-bottom: 1px solid #f2f2f2; padding-bottom: 10px; margin-bottom: 11px;
+      display: flex; gap: 16px; align-items: center; border-bottom: 1px solid #f2f2f2; padding-bottom: 12px; margin-bottom: 14px;
     }
     .modal-header img {
-      width: 60px; height: 60px; border-radius: 7px; object-fit: cover; border: 1px solid #eaeaea;
+      width: 65px; height: 65px; border-radius: 7px; object-fit: cover; border: 1px solid #eaeaea;
     }
-    .modal-header-title { font-weight:700; font-size:1.07rem;}
-    .modal-header-price { color:var(--shopee-orange);font-size:1.21rem;font-weight:700;}
-    .modal-selection-text { font-size:0.98rem; color:#888; margin-top:2px;}
-    .options-container {
-      display: flex; gap: 8px; margin: 13px 0 11px 0; flex-wrap: wrap;
-    }
-    .option-btn {
-      border: 2px solid #e8e8e8;
-      border-radius: 7px;
-      padding: 8px 18px;
-      font-size: 1.01rem;
-      font-weight: 700;
-      background: #fff;
-      transition: border 0.13s, background 0.13s, color 0.13s;
-      cursor: pointer;
-      outline: none;
-    }
-    .option-btn.selected {
-      border-color: var(--shopee-orange);
-      background: #ffe5d2;
-      color: var(--shopee-orange);
-      box-shadow: 0 2px 7px #ffd2bb44;
-    }
-    .modal-section { margin-top: 7px; }
-    #orderForm label { font-size: 1.01rem; font-weight: 600; display: block; margin-bottom: 7px; margin-top: 9px; }
+    .modal-header-title { font-weight:700; font-size:1.14rem;}
+    .modal-header-price { color:var(--shopee-orange);font-size:1.23rem;font-weight:700;}
+    .modal-selection-text { font-size:1.06rem; color:#888; margin-top:2px;}
+    #orderForm label { font-size: 1.03rem; font-weight: 600; display: block; margin-bottom: 8px; margin-top: 11px; }
     #orderForm input, #orderForm textarea {
-      width: 100%; padding: 12px; font-size: 1.05rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
+      width: 100%; padding: 13px; font-size: 1.11rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
     }
     .modal-submit-btn {
       width: 100%; background-color: var(--shopee-orange); color: var(--white); border: none; padding: 15px; border-radius: 6px;
-      font-size: 1.09rem; font-weight: 700; cursor: pointer; margin-top: 14px; font-family: 'Kanit', sans-serif;
+      font-size: 1.11rem; font-weight: 700; cursor: pointer; margin-top: 14px; font-family: 'Kanit', sans-serif;
       box-shadow: 0 1px 8px #ffd2bb33;
       letter-spacing: 0.01em;
     }
     .modal-submit-btn:disabled { background-color: #d5d5d5; cursor: not-allowed; }
     #successPopup {
       display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      background: rgba(255,255,255,0.95); color: #24b572; padding: 28px 36px; border-radius: 16px;
-      z-index: 99999; text-align: center; font-size: 1.17rem; font-weight: 600; box-shadow: 0 3px 18px #0001;
+      background: rgba(255,255,255,0.96); color: #24b572; padding: 33px 55px; border-radius: 18px;
+      z-index: 99999; text-align: center; font-size: 1.21rem; font-weight: 600; box-shadow: 0 5px 32px #0002;
       animation: fadeIn 0.18s;
     }
-    #successPopup i { font-size: 2.7rem; margin-bottom: 8px; color: #16cf3b; }
+    #successPopup i { font-size: 2.8rem; margin-bottom: 9px; color: #16cf3b; }
     @keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
-    @media (max-width: 600px) {
-      .product-card, .footer-bar { max-width: 100vw; }
-      .product-details { padding: 13px 7px 5px 7px;}
-      .modal-content { padding: 14px 3px 13px 6px;}
+
+    /* ---- Responsive ---- */
+    @media (max-width: 700px) {
+      .product-card, .footer-bar { max-width: 100vw; border-radius: 0;}
+      .product-details { padding: 11px 7px 5px 7px;}
+      .footer-bar { height: 62px; }
+      .modal-content { width: 100vw; border-radius: 15px 15px 0 0; padding: 21px 9px 13px 9px; max-width: 100vw; }
+      .modal-overlay { align-items: flex-end; }
+    }
+    @media (max-width: 500px) {
+      .product-details { padding: 8px 2px 5px 2px;}
+      .modal-content { padding: 13px 3px 9px 3px;}
+      #successPopup { padding: 19px 11px; font-size: 1.07rem;}
     }
   </style>
 </head>
@@ -309,17 +297,14 @@
         <span class="badge">เก็บเงินปลายทาง</span>
       </div>
       <div class="scarcity">🔥 โปรนี้เหลือ <b>7 ชิ้น</b> เท่านั้น!</div>
-
       <div>เลือกเฉดสี:</div>
       <div class="options-container" id="optionsContainer"></div>
-
       <ul class="benefits-list">
         <li>✅ ปกปิดแนบเนียน ไม่เป็นคราบ</li>
         <li>💦 กันน้ำ กันเหงื่อ ติดทนทั้งวัน</li>
         <li>✨ เนื้อบางเบา ไม่อุดตัน</li>
         <li>🌿 อ่อนโยนต่อผิว</li>
       </ul>
-
       <div class="review-box">
         <div class="review-header"><i class="fa-solid fa-user"></i> P***a</div>
         ปกปิดดีมาก เนื้อเนียน ใช้แล้วชอบมาก ส่งเร็วด้วย
@@ -328,7 +313,6 @@
         <div class="review-header"><i class="fa-solid fa-user"></i> K***n</div>
         ใช้มาหลายแท่งแล้ว ติดทน หน้ามันก็ไม่หลุด
       </div>
-
       <div class="product-actions">
         <button class="buy-btn" id="buyNowBtn"><i class="fa-solid fa-cart-shopping"></i> สั่งซื้อเลย</button>
         <a href="https://lin.ee/wKelfsp" target="_blank" class="line-btn"><i class="fa-brands fa-line"></i> แอดไลน์รับโปร</a>
@@ -340,7 +324,6 @@
     <a href="https://lin.ee/wKelfsp" target="_blank" class="line-btn"><i class="fa-brands fa-line"></i> แอดไลน์</a>
     <button class="buy-btn" id="buyNowBtn2"><i class="fa-solid fa-cart-shopping"></i> ซื้อเลย</button>
   </div>
-
   <!-- MODAL ตะกร้า (ระบบเดิม) -->
   <div class="modal-overlay" id="buyNowModal">
     <div class="modal-content">
@@ -367,14 +350,12 @@
       </form>
     </div>
   </div>
-
   <!-- Popup Success -->
   <div id="successPopup">
     <i class="fas fa-check-circle"></i>
     <p>สั่งซื้อสำเร็จ!</p>
     <span style="color:#222;font-weight:400;display:block;margin-top:7px;">เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันออเดอร์</span>
   </div>
-
   <script>
     // ฟีล Shopee + ระบบสั่งซื้อเดิม
     const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxvkT44c1V26IyzQW_4FhR4iQ0gmrNvdhF5TnneqNZ-21JXFczyZBo-8EFzhA69WshT/exec';
@@ -384,7 +365,6 @@
       { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ' },
       { id: 'B03', text: 'B03 - ผิวคล้ำ' }
     ];
-
     // --- เฉดสีหน้า product card (sync กับ modal)
     const optionsContainer = document.getElementById('optionsContainer');
     products.forEach(product => {
@@ -403,7 +383,6 @@
       };
       optionsContainer.appendChild(btn);
     });
-
     // --- เฉดสีใน modal
     const modalOptionsContainer = document.getElementById('modalOptionsContainer');
     products.forEach(product => {
@@ -422,7 +401,6 @@
       };
       modalOptionsContainer.appendChild(btn);
     });
-
     // Modal control
     const buyNowModal = document.getElementById('buyNowModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
@@ -436,7 +414,6 @@
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
-
     // ส่งฟอร์ม
     function sendOrderToSheet(event) {
       event.preventDefault();
