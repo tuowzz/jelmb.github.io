@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-  <title>🛍️ M-BLITHE คอนซีลเลอร์</title>
-  <!-- AdSense meta (ใหม่!) -->
+  <title>🛒 M-BLITHE คอนซีลเลอร์ | ซื้อผ่านหน้าเว็บ</title>
+  <!-- AdSense meta -->
   <meta name="google-adsense-account" content="ca-pub-7416292559334504">
-  <!-- AdSense script (ใส่ใน head ครั้งเดียวพอ) -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7416292559334504"
-     crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7416292559334504" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <!-- Facebook Pixel & TikTok Pixel -->
@@ -24,9 +22,10 @@
     fbq('init', '127978927946856');
     fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none"
-  src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"
-  /></noscript>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"/>
+  </noscript>
   <script>
     !function (w, d, t) {
       w.TiktokAnalyticsObject = t;
@@ -62,42 +61,65 @@
   <style>
     :root {
       --primary-color: #fe2c55;
-      --dark-text: #161823;
-      --light-text: #747474;
-      --background-color: #f1f1f2;
-      --white-color: #ffffff;
+      --line-green: #06c755;
+      --white: #fff;
       --border-color: #e8e8e8;
-      --trust-bg: #fff3d6;
-      --trust-color: #e65c00;
+      --background: #f8f8fa;
+      --shadow: 0 2px 18px 0 rgba(24,16,52,.07);
     }
     body {
       font-family: 'Kanit', sans-serif;
-      background-color: var(--background-color);
       margin: 0;
-      padding: 0;
-      padding-bottom: 80px;
-      color: var(--dark-text);
+      background: var(--background);
+      color: #161823;
+      padding-bottom: 75px;
+      min-height: 100vh;
+    }
+    .product-gallery img {
+      width: 100%; display: block; border-bottom: 1px solid var(--border-color);
     }
     .trust-banner {
-      background: var(--trust-bg);
-      color: var(--trust-color);
+      background: #fffbe2;
+      color: #d0912b;
       text-align: center;
       font-weight: 700;
-      font-size: 1.03rem;
-      padding: 9px 0 7px 0;
+      font-size: 1.02rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #ffe9b6;
       letter-spacing: .1px;
-      border-bottom: 1px solid #ffe5ae;
+    }
+    .content-padding {
+      padding: 15px 17px;
+      background: var(--white);
+      margin-bottom: 10px;
+      border-radius: 0 0 13px 13px;
+    }
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 3px;
+    }
+    .price-section {
+      display: flex; align-items: center; gap: 13px;
+      font-size: 1.17rem; font-weight: 700;
+    }
+    .price-section .current-price {
+      color: var(--primary-color); font-size: 1.7rem;
+    }
+    .price-section .original-price {
+      color: #8d8d8d; text-decoration: line-through; font-size: 1.05rem; font-weight: 400;
     }
     .scarcity-box {
       background: #fdf5f8;
-      border: 1px dashed #fe2c55;
-      border-radius: 9px;
+      border: 1px dashed var(--primary-color);
+      border-radius: 8px;
       text-align: center;
-      font-size: 1.04rem;
+      font-size: 1.02rem;
       font-weight: 600;
-      margin: 14px 0 0 0;
-      color: #fe2c55;
-      padding: 7px 8px 5px 8px;
+      margin: 16px 0 0 0;
+      color: var(--primary-color);
+      padding: 8px 9px 7px 9px;
       animation: shake .8s infinite alternate;
     }
     @keyframes shake {
@@ -105,136 +127,152 @@
       80% { transform: translateY(-1px);}
       100% { transform: translateY(2px);}
     }
-    .product-gallery img { width: 100%; display: block; }
-    .content-padding {
-      padding: 12px 15px;
-      background-color: var(--white-color);
-      margin-bottom: 10px;
+    .shop-info {
+      display: flex; align-items: center; gap: 13px; margin: 13px 0;
     }
-    .price-section { display: flex; align-items: center; gap: 10px; }
-    .price-section .current-price {
-      color: var(--primary-color); font-size: 1.8rem; font-weight: 700;
-    }
-    .price-section .original-price {
-      color: var(--light-text); text-decoration: line-through; font-size: 1rem;
-    }
-    .product-title {
-      font-size: 1.2rem; font-weight: 600; line-height: 1.4; margin-top: 5px;
-    }
-    .sales-info { font-size: 0.9rem; color: var(--light-text); margin-top: 8px; }
-    .info-row {
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 1rem; font-weight: 500; padding: 15px 0;
-      border-bottom: 1px solid var(--border-color); cursor: pointer;
-    }
-    .info-row:last-child { border-bottom: none; }
-    .info-row .fa-chevron-right { color: var(--light-text); }
-    .info-row .label { color: var(--light-text); font-weight: 400; margin-right: 10px; }
-    .shop-info { display: flex; align-items: center; gap: 12px; }
     .shop-info .avatar {
-      width: 50px; height: 50px; border-radius: 50%; background-color: #ccc;
+      width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ff7e5f, #feb47b);
       display: flex; align-items: center; justify-content: center; font-weight: 700;
-      color: var(--white-color); background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      color: var(--white); font-size: 1.1rem;
     }
     .shop-info .shop-name { font-weight: 600; }
-    .product-details h3, .reviews-section h3 {
-      font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;
+    .btn-add-line {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--line-green);
+      color: #fff !important;
+      font-size: 1.04rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 7px;
+      padding: 13px 20px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: background .18s;
+      box-shadow: 0 2px 10px 0 rgba(6,199,85,0.08);
+      text-decoration: none;
+      width: 100%;
     }
-    .feature-item {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 0.95rem;
-    }
-    .feature-item .icon { font-size: 1.2rem; color: #00b900; }
-    .review { border-bottom: 1px solid var(--border-color); padding-bottom: 15px; margin-bottom: 15px; }
-    .review:last-child { border-bottom: none; margin-bottom: 0; }
-    .review-header { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .review-header .stars { color: #f9d71c; }
-    .review-header .author { font-weight: 500; font-size: 0.9rem; }
-    .review-text { font-size: 0.95rem; line-height: 1.5; }
-    .customer-photos {
-      display: flex; gap: 8px; justify-content: center; margin: 12px 0 18px 0;
-    }
-    .customer-photos img {
-      width: 60px; height: 60px; object-fit: cover; border-radius: 50%; border: 2px solid #ffe5ae;
+    .btn-add-line:active { background: #04803e;}
+    .btn-add-line i { font-size: 1.35rem;}
+    .steps-box {
+      background: #f6faff; border-radius: 8px; padding: 9px 11px 9px 13px; margin-bottom: 13px;
+      font-size: 1.03rem;
     }
     .guarantee-box {
-      text-align: center; color: #ff5722; font-weight: 600; margin-bottom: 9px;
-      background: #fff6f2; padding: 7px 12px; border-radius: 8px;
+      text-align: center; color: #ff5722; font-weight: 600; margin-bottom: 10px;
+      background: #fff6f2; padding: 8px 11px; border-radius: 8px;
     }
-    .steps-box {
-      background: #f6faff; border-radius: 8px; padding: 8px 12px; margin-bottom: 12px;
-      font-size: 1.01rem;
+    .product-details h3, .reviews-section h3 {
+      font-size: 1.09rem; font-weight: 600; margin-bottom: 11px;
     }
+    .feature-item {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 11px; font-size: 0.97rem;
+    }
+    .feature-item .icon { font-size: 1.2rem; color: #00b900; }
+    .review-header { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+    .review-header .stars { color: #f9d71c; }
+    .review-header .author { font-weight: 500; font-size: 0.93rem; }
+    .review-text { font-size: 0.97rem; line-height: 1.46; }
     .sticky-footer {
       position: fixed; bottom: 0; left: 0; right: 0;
-      background-color: var(--white-color);
+      background-color: var(--white);
       border-top: 1px solid var(--border-color);
-      display: flex; padding: 8px; box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
-      z-index: 1000;
+      display: flex; z-index: 999;
+      height: 62px;
+      box-shadow: 0 -2px 16px 0 rgba(0,0,0,0.08);
     }
-    .sticky-footer .icon-btn {
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      width: 18%; font-size: 0.75rem; color: var(--dark-text); text-decoration: none;
+    .sticky-footer .btn-add-line {
+      width: 37%; border-radius: 0; font-size: 1.09rem; height: 100%;
+      margin: 0; border-right: 1px solid #eee; justify-content: center;
     }
-    .sticky-footer .icon-btn i { font-size: 1.5rem; margin-bottom: 2px; }
-    .sticky-footer .action-buttons { flex-grow: 1; display: flex; gap: 8px; }
-    .sticky-footer .action-buttons button {
-      flex-grow: 1; border: none; border-radius: 6px; padding: 12px 5px;
-      font-size: 1rem; font-weight: 600; font-family: 'Kanit', sans-serif; cursor: pointer;
-      transition: opacity 0.2s;
+    .sticky-footer .buy-now-tiktok {
+      background: var(--primary-color);
+      color: #fff; font-weight: 700; border: none; border-radius: 0;
+      font-size: 1.18rem; width: 63%; height: 100%;
+      cursor: pointer; transition: background 0.13s;
     }
-    .sticky-footer .action-buttons button:active { opacity: 0.8; }
-    .sticky-footer .action-buttons .buy-now { background-color: var(--primary-color); color: var(--white-color);}
+    .sticky-footer .buy-now-tiktok:active { opacity: 0.92; }
     .modal-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5); z-index: 2000;
-      display: none; justify-content: flex-end; flex-direction: column;
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.53); z-index: 3000;
+      display: none; flex-direction: column; justify-content: flex-end;
+      animation: fadeInBg 0.2s;
+    }
+    @keyframes fadeInBg {
+      from { background: rgba(0,0,0,0.0);}
+      to { background: rgba(0,0,0,0.53);}
     }
     .modal-content {
-      background-color: var(--white-color); border-radius: 12px 12px 0 0; padding: 20px;
-      animation: slideUp 0.3s ease-out; max-height: 90vh; overflow-y: auto;
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 22px 16px 18px 16px;
+      animation: slideUp .19s cubic-bezier(0.4,1.13,0.41,1.32);
+      max-height: 93vh; overflow-y: auto;
+      box-shadow: var(--shadow);
+      position: relative;
     }
-    @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+    @keyframes slideUp { from { transform: translateY(30%); opacity:0 } to { transform: translateY(0); opacity:1} }
+    .close-btn {
+      position: absolute; top: 13px; right: 15px; font-size: 1.5rem; color: #b5b5b5; cursor: pointer; z-index: 10;
+    }
     .modal-header {
-      display: flex; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--border-color); align-items: flex-end;
+      display: flex; gap: 16px; align-items: center; border-bottom: 1px solid #f2f2f2; padding-bottom: 10px; margin-bottom: 11px;
     }
     .modal-header img {
-      width: 100px; height: 100px; border-radius: 8px; object-fit: cover; border: 1px solid var(--border-color);
+      width: 66px; height: 66px; border-radius: 8px; object-fit: cover; border: 1px solid #eaeaea;
     }
-    .modal-price { color: var(--primary-color); font-size: 1.5rem; font-weight: 700;}
-    .modal-selection-text { font-size: 0.9rem; color: var(--light-text); margin-top: 4px; }
-    .modal-section { padding: 15px 0; border-bottom: 1px solid var(--border-color);}
-    .modal-section h4 { font-size: 1rem; font-weight: 600; margin: 0 0 10px 0;}
-    .options-container { display: flex; flex-wrap: wrap; gap: 10px; }
+    .modal-header-title { font-weight:600; font-size:1.08rem;}
+    .modal-header-price { color:#fe2c55;font-size:1.3rem;font-weight:700;}
+    .options-container {
+      display: flex; gap: 9px; margin: 12px 0 12px 0; flex-wrap: wrap;
+    }
     .option-btn {
-      background-color: var(--background-color); border: 1px solid var(--border-color);
-      color: var(--dark-text); padding: 8px 15px; border-radius: 6px; cursor: pointer; font-size: 0.95rem;
+      border: 2px solid #e8e8e8;
+      border-radius: 7px;
+      padding: 10px 19px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      background: #fff;
+      transition: border 0.13s, background 0.13s, color 0.13s;
+      cursor: pointer;
+      outline: none;
     }
     .option-btn.selected {
-      background-color: #ffe8eb; border-color: var(--primary-color); color: var(--primary-color); font-weight: 500;
+      border-color: #fe2c55;
+      background: #fff1f5;
+      color: #fe2c55;
+      box-shadow: 0 2px 7px rgba(254,44,85,0.07);
     }
-    #orderForm label { font-size: 1rem; font-weight: 600; display: block; margin-bottom: 8px; margin-top: 15px; }
+    .modal-section { margin-top: 7px; }
+    #orderForm label { font-size: 1.01rem; font-weight: 600; display: block; margin-bottom: 7px; margin-top: 11px; }
     #orderForm input, #orderForm textarea {
-      width: 100%; padding: 12px; font-size: 1rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
+      width: 100%; padding: 12px; font-size: 1.05rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
     }
     .modal-submit-btn {
-      width: 100%; background-color: var(--primary-color); color: var(--white-color); border: none; padding: 15px; border-radius: 6px;
-      font-size: 1.1rem; font-weight: 600; cursor: pointer; margin-top: 15px; font-family: 'Kanit', sans-serif;
+      width: 100%; background-color: var(--primary-color); color: var(--white); border: none; padding: 15px; border-radius: 6px;
+      font-size: 1.09rem; font-weight: 700; cursor: pointer; margin-top: 15px; font-family: 'Kanit', sans-serif;
+      box-shadow: 0 1px 8px rgba(254,44,85,0.07);
+      letter-spacing: 0.01em;
     }
-    .modal-submit-btn:disabled { background-color: #ccc; cursor: not-allowed; }
-    .close-btn {
-      position: absolute; top: 15px; right: 15px; font-size: 1.5rem; color: var(--light-text); cursor: pointer;
-    }
+    .modal-submit-btn:disabled { background-color: #d5d5d5; cursor: not-allowed; }
     #successPopup {
       display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-      background: rgba(0,0,0,0.7); color: white; padding: 20px 30px; border-radius: 12px;
-      z-index: 9999; text-align: center; font-size: 1rem;
+      background: rgba(255,255,255,0.95); color: #24b572; padding: 30px 42px; border-radius: 17px;
+      z-index: 9999; text-align: center; font-size: 1.17rem; font-weight: 600; box-shadow: var(--shadow);
+      animation: fadeIn 0.18s;
     }
-    #successPopup i { font-size: 2rem; margin-bottom: 10px; color: #4CAF50; }
+    #successPopup i { font-size: 2.7rem; margin-bottom: 8px; color: #16cf3b; }
+    @keyframes fadeIn { from { opacity: 0;} to { opacity: 1;} }
+    @media (max-width: 600px) {
+      .content-padding { padding: 13px 8px; border-radius: 0;}
+      .modal-content { padding: 17px 6px 15px 7px;}
+      .sticky-footer .btn-add-line, .sticky-footer .buy-now-tiktok { font-size: 1.02rem;}
+    }
   </style>
 </head>
 <body>
 
-  <!-- TRUST BANNER -->
   <div class="trust-banner">
     ✅ ของแท้ 100% | เก็บเงินปลายทาง | รีวิวลูกค้ากว่า 9,000+ คน
   </div>
@@ -248,28 +286,19 @@
       <span class="current-price">฿299</span>
       <span class="original-price">฿390</span>
     </div>
-    <h1 class="product-title">✨ M-BLITHE คอนซีลเลอร์ ปกปิดเรียบเนียน กันน้ำ กันเหงื่อ</h1>
-    <div class="sales-info">
-      <i class="fa-solid fa-star" style="color: #f9d71c;"></i> 4.9/5 | ขายแล้ว 9k+ ชิ้น
-    </div>
+    <div class="product-title">✨ M-BLITHE คอนซีลเลอร์ ปกปิดเรียบเนียน กันน้ำ กันเหงื่อ</div>
+    <div style="color:#777;font-size:0.97rem;margin:5px 0 12px 0;"><i class="fa-solid fa-star" style="color:#f9d71c"></i> 4.9/5 | ขายแล้ว 9k+ ชิ้น</div>
     <div class="scarcity-box">
       เหลือโปรนี้อีก 7 ชิ้น! <span style="color:#161823;font-size:0.93rem;">ส่งฟรีวันนี้เท่านั้น</span>
     </div>
   </div>
 
-  <div class="content-padding">
-    <div class="info-row" id="options-trigger">
-      <span><span class="label">ตัวเลือก:</span><span id="selected-option-text">โปรดเลือกเฉดสี</span></span>
-      <i class="fas fa-chevron-right"></i>
-    </div>
-  </div>
-
-  <div class="content-padding shop-info">
+  <div class="content-padding shop-info" style="border-radius:12px;">
     <div class="avatar">MB</div>
-    <div class="shop-details">
+    <div>
       <div class="shop-name">M-BLITHE Official</div>
-      <a href="https://lin.ee/wKelfsp" target="_blank" style="text-decoration: none; color: var(--light-text); font-size: 0.9rem;">
-        <i class="fa-brands fa-line" style="color: #00b900;"></i> สอบถามทาง LINE
+      <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-add-line" id="addLineBtn">
+        <i class="fa-brands fa-line"></i> สอบถาม-รับโปรผ่าน LINE
       </a>
     </div>
   </div>
@@ -290,8 +319,7 @@
     <div class="feature-item"><span class="icon">✅</span>ปกปิดขั้นสุด เรียบเนียน ไม่เห็นรอย</div>
     <div class="feature-item"><span class="icon">💦</span>กันน้ำ กันเหงื่อ ติดทนนานตลอดวัน</div>
     <div class="feature-item"><span class="icon">✨</span>เนื้อบางเบา ไม่หนักหน้า ไม่ตกร่อง</div>
-    <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน
-    </div>
+    <div class="feature-item"><span class="icon">🌿</span>อ่อนโยนต่อผิว ไม่ก่อให้เกิดการอุดตัน</div>
   </div>
 
   <div class="content-padding reviews-section">
@@ -312,63 +340,46 @@
     </div>
   </div>
 
-  <!-- วาง Banner Google AdSense ที่นี่ -->
-  <div style="width:100%; max-width:400px; margin:18px auto 14px auto; border-radius:12px; overflow:hidden; box-shadow:0 2px 12px rgba(0,0,0,0.07); background:#fff;">
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center; min-height:100px;"
-         data-ad-client="ca-pub-7416292559334504"
-         data-ad-slot="YOUR_AD_SLOT"
-         data-ad-format="auto"></ins>
-    <script>
-         (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-  </div>
-  <!-- /Banner AdSense -->
-
+  <!-- Footer Bar แบบ TikTok Shop -->
   <footer class="sticky-footer">
-    <a href="https://lin.ee/wKelfsp" target="_blank" class="icon-btn">
-      <i class="fa-brands fa-rocketchat"></i>
-      <span>แชท</span>
+    <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-add-line" id="addLineBtnFooter">
+      <i class="fa-brands fa-line"></i> แอดไลน์รับโปร
     </a>
-    <div class="action-buttons">
-      <button class="buy-now" id="buyNowBtn">ซื้อตอนนี้</button>
-    </div>
+    <button class="buy-now-tiktok" id="buyNowBtn">🛒 ซื้อตอนนี้</button>
   </footer>
 
+  <!-- MODAL ตะกร้า -->
   <div class="modal-overlay" id="buyNowModal">
     <div class="modal-content">
       <i class="fas fa-times close-btn" id="closeModalBtn"></i>
       <div class="modal-header">
         <img src="photo_2025-06-10_00-30-00.jpg" alt="Product Thumbnail">
         <div>
-          <div class="modal-price">฿299.00</div>
-          <div class="modal-selection-text">ตัวเลือก: <span id="modal-selected-option-text">-</span></div>
+          <div class="modal-header-title">M-BLITHE คอนซีลเลอร์</div>
+          <div class="modal-header-price">฿299</div>
+          <div class="modal-selection-text" style="font-size:0.98rem; color:#888;">เลือกเฉดสี</div>
         </div>
       </div>
-      <form id="orderForm" onsubmit="sendOrderToSheet(event);">
-        <div class="modal-section">
-          <h4>เฉดสี</h4>
-          <div class="options-container" id="optionsContainer"></div>
-          <input type="hidden" name="product" id="productInput" required>
-        </div>
-        <div class="modal-section">
-          <h4>ข้อมูลการจัดส่ง</h4>
-          <label for="name">ชื่อ-นามสกุล</label>
-          <input type="text" id="name" name="name" required placeholder="กรอกชื่อ-นามสกุล">
-          <label for="phone">เบอร์โทรศัพท์</label>
-          <input type="text" id="phone" name="phone" required placeholder="ตัวอย่าง: 0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทรศัพท์ 10 หลัก">
-          <label for="address">ที่อยู่จัดส่ง</label>
-          <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
-        </div>
-        <button type="submit" class="modal-submit-btn" id="submitBtn">ยืนยัน</button>
+      <!-- เฉดสี -->
+      <div class="options-container" id="optionsContainer"></div>
+      <form id="orderForm" onsubmit="sendOrderToSheet(event);" autocomplete="off">
+        <input type="hidden" name="product" id="productInput" required>
+        <label for="name">ชื่อ-นามสกุล</label>
+        <input type="text" id="name" name="name" required placeholder="กรอกชื่อ-นามสกุล">
+        <label for="phone">เบอร์โทรศัพท์</label>
+        <input type="text" id="phone" name="phone" required placeholder="ตัวอย่าง: 0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทรศัพท์ 10 หลัก">
+        <label for="address">ที่อยู่จัดส่ง</label>
+        <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
+        <button type="submit" class="modal-submit-btn" id="submitBtn">ยืนยันสั่งซื้อ</button>
       </form>
     </div>
   </div>
 
+  <!-- Popup Success -->
   <div id="successPopup">
     <i class="fas fa-check-circle"></i>
     <p>สั่งซื้อสำเร็จ!</p>
-    <span>เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยัน</span>
+    <span style="color:#222;font-weight:400;display:block;margin-top:7px;">เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันออเดอร์</span>
   </div>
 
   <script>
@@ -379,40 +390,54 @@
       { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ' },
       { id: 'B03', text: 'B03 - ผิวคล้ำ' }
     ];
+    // Modal variables
     const buyNowModal = document.getElementById('buyNowModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const buyNowBtn = document.getElementById('buyNowBtn');
-    const optionsTrigger = document.getElementById('options-trigger');
     const optionsContainer = document.getElementById('optionsContainer');
-    const selectedOptionText = document.getElementById('selected-option-text');
-    const modalSelectedOptionText = document.getElementById('modal-selected-option-text');
     const productInput = document.getElementById('productInput');
     let selectedProduct = null;
-    // Populate product options
+    // Render shade options
+    optionsContainer.innerHTML = '';
     products.forEach(product => {
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'option-btn';
       btn.textContent = product.text;
       btn.dataset.value = `${product.text} - 299 บาท`;
-      btn.addEventListener('click', () => {
+      btn.onclick = () => {
         document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
         btn.classList.add('selected');
         selectedProduct = btn.dataset.value;
         productInput.value = selectedProduct;
-        selectedOptionText.textContent = product.text;
-        modalSelectedOptionText.textContent = product.text;
-      });
+      };
       optionsContainer.appendChild(btn);
     });
+    // Modal control
     function openModal() { buyNowModal.style.display = 'flex'; }
     function closeModal() { buyNowModal.style.display = 'none'; }
-    buyNowBtn.addEventListener('click', openModal);
-    optionsTrigger.addEventListener('click', openModal);
+    buyNowBtn.addEventListener('click', function() {
+      openModal();
+      trackInitiateCheckout();
+    });
     closeModalBtn.addEventListener('click', closeModal);
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
+    // LINE Button Tracking (Header + Footer)
+    function lineTrackingHandler() {
+      if(window.fbq) fbq('track', 'Contact');
+      if(window.ttq) ttq.track('Contact');
+    }
+    document.querySelectorAll('#addLineBtn, #addLineBtnFooter').forEach(el => {
+      if(el) el.addEventListener('click', lineTrackingHandler);
+    });
+    // InitiateCheckout Tracking
+    function trackInitiateCheckout() {
+      if(window.fbq) fbq('track', 'InitiateCheckout');
+      if(window.ttq) ttq.track('InitiateCheckout');
+    }
+    // Form submit
     function sendOrderToSheet(event) {
       event.preventDefault();
       if (!selectedProduct) {
@@ -425,6 +450,11 @@
       submitButton.disabled = true;
       submitButton.textContent = 'กำลังส่งข้อมูล...';
       const formData = new FormData(orderForm);
+      // Make sure phone is sent as string with leading zero
+      const phoneField = orderForm.querySelector('#phone');
+      if (phoneField && phoneField.value && !phoneField.value.startsWith("'")) {
+        formData.set('phone', "'" + phoneField.value);
+      }
       formData.set("order_id", 'ORD-' + Date.now());
       fetch(GOOGLE_SHEET_WEB_APP_URL, {
         method: "POST", body: formData
@@ -434,17 +464,15 @@
         submitButton.disabled = false;
         submitButton.textContent = originalButtonText;
         if (data.result === 'success') {
-          fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
-          ttq.track('CompletePayment');
+          if(window.fbq) fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
+          if(window.ttq) ttq.track('CompletePayment');
           closeModal();
           orderForm.reset();
-          selectedOptionText.textContent = 'โปรดเลือกเฉดสี';
           document.querySelectorAll('.option-btn').forEach(b => b.classList.remove('selected'));
           selectedProduct = null;
-          // Show success popup
           const successPopup = document.getElementById('successPopup');
           successPopup.style.display = 'block';
-          setTimeout(() => { successPopup.style.display = 'none'; }, 3000);
+          setTimeout(() => { successPopup.style.display = 'none'; }, 2800);
         } else {
           alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่ทราบสาเหตุ'));
         }
