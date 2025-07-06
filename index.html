@@ -6,6 +6,24 @@
   <title>M-BLITHE คอนซีลเลอร์ | Shopee Vibe</title>
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <!-- Facebook Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '127978927946856');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=127978927946856&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
   <style>
     :root {
       --shopee-orange: #ee4d2d;
@@ -425,6 +443,27 @@
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
+
+    // ===== Facebook Pixel Event Functions =====
+    function fbPurchaseEvent(orderValue = 299) {
+      if (typeof fbq !== "undefined") {
+        fbq('track', 'Purchase', {
+          value: orderValue,
+          currency: 'THB'
+        });
+      }
+    }
+    function fbAddLineEvent() {
+      if (typeof fbq !== "undefined") {
+        fbq('trackCustom', 'AddLine');
+      }
+    }
+    // Add event to all .line-btn
+    document.querySelectorAll('.line-btn').forEach(function(el) {
+      el.addEventListener('click', fbAddLineEvent);
+    });
+    // ===== End Facebook Pixel Event Functions =====
+
     // ส่งฟอร์ม
     function sendOrderToSheet(event) {
       event.preventDefault();
@@ -460,6 +499,10 @@
           const successPopup = document.getElementById('successPopup');
           successPopup.style.display = 'block';
           setTimeout(() => { successPopup.style.display = 'none'; }, 2400);
+
+          // === Facebook Pixel: Purchase Event ===
+          fbPurchaseEvent(299);
+
         } else {
           alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่ทราบสาเหตุ'));
         }
