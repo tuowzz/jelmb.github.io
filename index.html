@@ -2,10 +2,12 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>M-BLITHE คอนซีลเลอร์ | Shopee Vibe</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>ซื้อคอนซีลเลอร์ M-BLITHE ปกปิดเนียน เกลี่ยง่าย ไม่เป็นคราบ ส่งฟรี เก็บเงินปลายทาง</title>
+  <meta name="description" content="คอนซีลเลอร์ M-BLITHE ปกปิดเนียน เกลี่ยง่าย ไม่เป็นคราบ ติดทน รีวิวจริงจากลูกค้าหลายพันคน ส่งฟรี เก็บเงินปลายทาง เหมาะสำหรับทุกสภาพผิว">
+  <meta name="keywords" content="คอนซีลเลอร์, concealer, M-BLITHE, ปกปิดใต้ตา, ไม่เป็นคราบ, ส่งฟรี, เก็บเงินปลายทาง">
+  <link rel="canonical" href="https://tuowzz.github.io/mbshopz.github.io/concealer" />
+
   <!-- Facebook Pixel -->
   <script>
     !function(f,b,e,v,n,t,s){
@@ -62,78 +64,358 @@
     gtag('js', new Date());
     gtag('config', 'AW-17035064059');
   </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <style>
-    /* ...วาง CSS เดิมของคุณตรงนี้... */
+    :root {
+      --primary-color: #ee4d2d;
+      --shopee-orange: #ee4d2d;
+      --shopee-light-orange: #fff7f4;
+      --white: #fff;
+      --border-color: #e8e8e8;
+      --background: #f8f8fa;
+      --shadow: 0 2px 18px 0 rgba(24,16,52,.07);
+    }
+    body {
+      font-family: 'Kanit', sans-serif;
+      margin: 0;
+      background: var(--background);
+      color: #161823;
+      padding-bottom: 75px;
+      min-height: 100vh;
+    }
+    .product-gallery img {
+      width: 100%; display: block; border-bottom: 1px solid var(--border-color);
+    }
+    .trust-banner {
+      background: var(--shopee-light-orange);
+      color: var(--shopee-orange);
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.04rem;
+      padding: 10px 0;
+      border-bottom: 1px solid #ffe9b6;
+      letter-spacing: .1px;
+    }
+    .content-padding {
+      padding: 15px 17px;
+      background: var(--white);
+      margin-bottom: 10px;
+      border-radius: 0 0 13px 13px;
+      box-shadow: 0 2px 13px 0 rgba(238,77,45,0.06);
+    }
+    .shopee-label {
+      display: inline-block;
+      background: var(--shopee-orange);
+      color: #fff;
+      font-size: 0.92rem;
+      font-weight: 700;
+      border-radius: 5px;
+      padding: 2px 9px;
+      margin-right: 6px;
+      margin-bottom: 5px;
+    }
+    .shopee-label.green {background:#22c55e;}
+    .shopee-label.yellow {background:#ffb300;}
+    .shopee-label.black {background:#222;}
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-top: 12px;
+      margin-bottom: 3px;
+    }
+    .price-section {
+      display: flex; align-items: center; gap: 13px;
+      font-size: 1.20rem; font-weight: 700;
+    }
+    .price-section .current-price {
+      color: var(--shopee-orange); font-size: 2rem;font-weight:800;
+    }
+    .price-section .original-price {
+      color: #b0b0b0; text-decoration: line-through; font-size: 1.11rem; font-weight: 400;
+      margin-left: 10px;
+    }
+    .scarcity-box {
+      background: #fff3e3;
+      border: 1.5px dashed var(--shopee-orange);
+      border-radius: 9px;
+      text-align: center;
+      font-size: 1.06rem;
+      font-weight: 600;
+      margin: 15px 0 0 0;
+      color: var(--shopee-orange);
+      padding: 11px 11px 10px 11px;
+      animation: shake .8s infinite alternate;
+    }
+    @keyframes shake {
+      0% { transform: translateY(0);}
+      80% { transform: translateY(-1px);}
+      100% { transform: translateY(2px);}
+    }
+    .shop-info {
+      display: flex; align-items: center; gap: 13px; margin: 13px 0;
+    }
+    .shop-info .avatar {
+      width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #ff7e5f, #feb47b);
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+      color: var(--white); font-size: 1.13rem;
+    }
+    .shop-info .shop-name { font-weight: 600; }
+    .btn-add-line {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: #06c755;
+      color: #fff !important;
+      font-size: 1.04rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 7px;
+      padding: 13px 20px;
+      margin-top: 6px;
+      margin-bottom: 6px;
+      cursor: pointer;
+      transition: background .18s;
+      box-shadow: 0 2px 10px 0 rgba(6,199,85,0.08);
+      text-decoration: none;
+      width: 100%;
+    }
+    .btn-add-line:active { background: #04803e;}
+    .btn-add-line i { font-size: 1.35rem;}
+    .steps-box {
+      background: #f6faff; border-radius: 8px; padding: 9px 11px 9px 13px; margin-bottom: 13px;
+      font-size: 1.03rem;
+    }
+    .guarantee-box {
+      text-align: center; color: #ee4d2d; font-weight: 600; margin-bottom: 10px;
+      background: #fff6f2; padding: 8px 11px; border-radius: 8px;
+    }
+    .product-details h3, .reviews-section h3 {
+      font-size: 1.09rem; font-weight: 600; margin-bottom: 11px;
+    }
+    .feature-item {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 11px; font-size: 0.97rem;
+    }
+    .feature-item .icon { font-size: 1.2rem; color: #00b900; }
+    .review-header { display: flex; align-items: center; gap: 7px; margin-bottom: 6px; }
+    .review-header .stars { color: #f9d71c; }
+    .review-header .author { font-weight: 500; font-size: 0.93rem; }
+    .review-text { font-size: 0.97rem; line-height: 1.46; }
+    .sticky-footer {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--border-color);
+      display: flex; z-index: 999;
+      height: 62px;
+      box-shadow: 0 -2px 16px 0 rgba(0,0,0,0.08);
+    }
+    .sticky-footer .btn-add-line {
+      width: 37%; border-radius: 0; font-size: 1.09rem; height: 100%;
+      margin: 0; border-right: 1px solid #eee; justify-content: center;
+    }
+    .sticky-footer .buy-now-tiktok {
+      background: var(--shopee-orange);
+      color: #fff; font-weight: 700; border: none; border-radius: 0;
+      font-size: 1.22rem; width: 63%; height: 100%;
+      cursor: pointer; transition: background 0.13s;
+    }
+    .sticky-footer .buy-now-tiktok:active { opacity: 0.92; }
+    .modal-overlay {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.53); z-index: 3000;
+      display: none; flex-direction: column; justify-content: flex-end;
+      animation: fadeInBg 0.2s;
+    }
+    @keyframes fadeInBg {
+      from { background: rgba(0,0,0,0.0);}
+      to { background: rgba(0,0,0,0.53);}
+    }
+    .modal-content {
+      background: #fff;
+      border-radius: 16px 16px 0 0;
+      padding: 22px 16px 18px 16px;
+      animation: slideUp .19s cubic-bezier(0.4,1.13,0.41,1.32);
+      max-height: 93vh; overflow-y: auto;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    @keyframes slideUp { from { transform: translateY(30%); opacity:0 } to { transform: translateY(0); opacity:1} }
+    .close-btn {
+      position: absolute; top: 13px; right: 15px; font-size: 1.5rem; color: #b5b5b5; cursor: pointer; z-index: 10;
+    }
+    .modal-header {
+      display: flex; gap: 16px; align-items: center; border-bottom: 1px solid #f2f2f2; padding-bottom: 10px; margin-bottom: 11px;
+    }
+    .modal-header img {
+      width: 66px; height: 66px; border-radius: 8px; object-fit: cover; border: 1px solid #eaeaea;
+    }
+    .modal-header-title { font-weight:600; font-size:1.08rem;}
+    .modal-header-price { color:var(--shopee-orange);font-size:1.3rem;font-weight:700;}
+    #orderForm label { font-size: 1.01rem; font-weight: 600; display: block; margin-bottom: 7px; margin-top: 11px; }
+    #orderForm input, #orderForm textarea {
+      width: 100%; padding: 12px; font-size: 1.05rem; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; font-family: 'Kanit', sans-serif;
+    }
+    .modal-submit-btn {
+      width: 100%; background-color: var(--shopee-orange); color: var(--white); border: none; padding: 15px; border-radius: 6px;
+      font-size: 1.09rem; font-weight: 700; cursor: pointer; margin-top: 15px; font-family: 'Kanit', sans-serif;
+      box-shadow: 0 1px 8px rgba(254,44,85,0.07);
+      letter-spacing: 0.01em;
+    }
+    .modal-submit-btn:disabled { background-color: #d5d5d5; cursor: not-allowed; }
+    #successPopup {
+      display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.95); color: #24b572; padding: 30px 42px; border-radius: 17px;
+      z-index: 9999; text-align: center; font-size: 1.17rem; font-weight: 600; box-shadow: var(--shadow);
+      animation: fadeIn 0.18s;
+    }
+    #successPopup i { font-size: 2.7rem; margin-bottom: 8px; color: #16cf3b; }
+    .options-container { display: flex; gap: 9px; margin: 13px 0 9px 0; flex-wrap: wrap; }
+    .option-btn {
+      border: 2px solid #eee;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #222;
+      padding: 7px 14px;
+      cursor: pointer;
+      transition: border 0.14s, background 0.13s, color 0.13s;
+      outline: none;
+    }
+    .option-btn.selected {
+      border-color: var(--shopee-orange);
+      background: #ffe5d2;
+      color: var(--shopee-orange);
+      box-shadow: 0 1px 7px #ffd2bb44;
+    }
+    @media (max-width: 600px) {
+      .content-padding { padding: 13px 8px; border-radius: 0;}
+      .modal-content { padding: 17px 6px 15px 7px;}
+      .sticky-footer .btn-add-line, .sticky-footer .buy-now-tiktok { font-size: 1.02rem;}
+    }
   </style>
 </head>
 <body>
-  <div class="header-bar">
-    <i class="fa-solid fa-bag-shopping"></i> M-BLITHE Official Store
+
+  <header>
+    <h1 style="font-size:1.25rem;line-height:1.4em;color:#ee4d2d;padding:14px 14px 2px 14px;text-align:center;">
+      <span class="shopee-label">ขายดี</span>
+      <span class="shopee-label green">ส่งฟรี</span>
+      <span class="shopee-label yellow">พร้อมส่ง</span>
+      <span class="shopee-label black">เก็บเงินปลายทาง</span><br>
+      คอนซีลเลอร์ <span style="font-weight:700;">M-BLITHE</span> ปกปิดเนียน เกลี่ยง่าย ไม่เป็นคราบ
+    </h1>
+  </header>
+
+  <div class="trust-banner">
+    ✅ ของแท้ 100% | เก็บเงินปลายทาง | รีวิวลูกค้าหลายพัน | เหมาะกับทุกสภาพผิว
   </div>
-  <div class="product-card">
-    <span class="shop-badge"><i class="fa-solid fa-check"></i> Official</span>
-    <img src="photo_2025-06-10_00-30-00.jpg" class="product-img" alt="M-BLITHE คอนซีลเลอร์" />
-    <div class="product-details">
-      <div class="product-title">คอนซีลเลอร์ M-BLITHE ปกปิดฝ้า กระ รอยสิวเนียนกริบ</div>
-      <div class="rating-row">
-        <i class="fa-solid fa-star"></i> 4.9 | ขายแล้ว 9,000+
-      </div>
-      <div class="price-row">
-        ฿299 <span class="old-price">฿390</span>
-      </div>
-      <div class="badges">
-        <span class="badge">ส่งฟรี</span>
-        <span class="badge">ยอดนิยม</span>
-        <span class="badge">เก็บเงินปลายทาง</span>
-      </div>
-      <div class="scarcity">🔥 โปรนี้เหลือ <b>7 ชิ้น</b> เท่านั้น!</div>
-      <div>เลือกเฉดสี:</div>
-      <div class="options-container" id="optionsContainer"></div>
-      <ul class="benefits-list">
-        <li>✅ ปกปิดแนบเนียน ไม่เป็นคราบ</li>
-        <li>💦 กันน้ำ กันเหงื่อ ติดทนทั้งวัน</li>
-        <li>✨ เนื้อบางเบา ไม่อุดตัน</li>
-        <li>🌿 อ่อนโยนต่อผิว</li>
-      </ul>
-      <div class="review-box">
-        <div class="review-header"><i class="fa-solid fa-user"></i> P***a</div>
-        ปกปิดดีมาก เนื้อเนียน ใช้แล้วชอบมาก ส่งเร็วด้วย
-      </div>
-      <div class="review-box">
-        <div class="review-header"><i class="fa-solid fa-user"></i> K***n</div>
-        ใช้มาหลายแท่งแล้ว ติดทน หน้ามันก็ไม่หลุด
-      </div>
-      <div class="product-actions">
-        <button class="buy-btn" id="buyNowBtn"><i class="fa-solid fa-cart-shopping"></i> สั่งซื้อเลย</button>
-        <a href="https://lin.ee/wKelfsp" target="_blank" class="line-btn" id="lineBtn1">
-          <i class="fa-brands fa-line"></i> แอดไลน์รับโปร
-        </a>
+
+  <div class="product-gallery">
+    <img src="concealer_photo.jpg" alt="คอนซีลเลอร์ M-BLITHE ปกปิดเนียน เกลี่ยง่าย ไม่เป็นคราบ">
+  </div>
+
+  <section style="padding:10px 17px;">
+    <p style="color:#999;font-size:0.96rem;margin:5px 0;">
+      #คอนซีลเลอร์ #concealer #mblithe #ปกปิดใต้ตา #ไม่เป็นคราบ #ส่งฟรี #เก็บเงินปลายทาง
+    </p>
+  </section>
+
+  <div class="content-padding">
+    <div class="price-section">
+      <span class="current-price">฿299</span>
+      <span class="original-price">฿390</span>
+    </div>
+    <div class="product-title">✨ M-BLITHE คอนซีลเลอร์ ปกปิดเนียน เกลี่ยง่าย ไม่เป็นคราบ</div>
+    <div style="color:#ee4d2d;font-size:1.06rem;margin:6px 0 11px 0;">
+      ★ 4.9/5 | 9,000 รีวิว
+      <div style="margin:0 0 16px 0;text-align:center;">
+        <!-- วิดีโอรีวิวถ้ามี -->
       </div>
     </div>
+    <div class="scarcity-box">
+      🎉 <b>โปรพิเศษ! เหลือ 7 ชิ้น</b> | ส่งฟรีวันนี้เท่านั้น
+    </div>
+    <div style="margin-top:14px;">
+      <b>เลือกเฉดสี:</b>
+      <div class="options-container" id="optionsContainer"></div>
+    </div>
   </div>
-  <!-- Footer bar -->
-  <div class="footer-bar">
-    <a href="https://lin.ee/wKelfsp" target="_blank" class="line-btn" id="lineBtn2">
-      <i class="fa-brands fa-line"></i> แอดไลน์
+
+  <div class="content-padding shop-info" style="border-radius:12px;">
+    <div class="avatar">MB</div>
+    <div>
+      <div class="shop-name">M-BLITHE Official</div>
+      <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-add-line" id="addLineBtn">
+        <i class="fa-brands fa-line"></i> สอบถาม-รับโปรผ่าน LINE
+      </a>
+    </div>
+  </div>
+
+  <div class="content-padding guarantee-box">
+    🏅 รับประกันคุณภาพ ปกปิดเนียน ติดทน ไม่เป็นคราบ
+  </div>
+
+  <div class="content-padding steps-box">
+    <b>สั่งซื้อคอนซีลเลอร์ใน 2 ขั้นตอน</b><br>
+    1. กรอกข้อมูลจัดส่ง<br>
+    2. รอเจ้าหน้าที่ติดต่อยืนยัน
+  </div>
+
+  <div class="content-padding product-details">
+    <h2 style="font-size:1.09rem;font-weight:600;margin-bottom:11px;">
+      <i class="fa-solid fa-circle-info"></i> รายละเอียดสินค้า คอนซีลเลอร์ M-BLITHE
+    </h2>
+    <div class="feature-item"><span class="icon">✅</span>ปกปิดใต้ตา รอยสิว จุดด่างดำ เนียนสนิท</div>
+    <div class="feature-item"><span class="icon">💧</span>ไม่เป็นคราบ เกลี่ยง่าย ไม่ตกร่อง</div>
+    <div class="feature-item"><span class="icon">🌞</span>ติดทนนาน กันเหงื่อ ไม่หลุดระหว่างวัน</div>
+    <div class="feature-item"><span class="icon">🎨</span>เลือกเฉดสีให้เหมาะกับผิวคุณ</div>
+    <div style="color:#999;font-size:0.9rem;">* ผลลัพธ์แตกต่างกันแต่ละบุคคล</div>
+  </div>
+
+  <div class="content-padding reviews-section">
+    <h3><i class="fa-solid fa-comments"></i> รีวิวจากลูกค้าจริง (Shopee)</h3>
+    <div class="review">
+      <div class="review-header">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="author">P***a</span>
+      </div>
+      <p class="review-text">
+        ปกปิดดีมาก เนื้อเนียน ใช้แล้วชอบมาก ส่งเร็วด้วย
+      </p>
+      <div style="color:#aaa;font-size:0.92rem;margin-top:6px;">รีวิววันที่ 2025-05-13</div>
+    </div>
+    <div class="review">
+      <div class="review-header">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="author">K***n</span>
+      </div>
+      <p class="review-text">
+        ใช้มาหลายแท่งแล้ว ติดทน หน้ามันก็ไม่หลุด
+      </p>
+      <div style="color:#aaa;font-size:0.92rem;margin-top:6px;">รีวิววันที่ 2025-05-19</div>
+    </div>
+  </div>
+
+  <footer class="sticky-footer">
+    <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-add-line" id="addLineBtnFooter">
+      <i class="fa-brands fa-line"></i> แอดไลน์รับโปร
     </a>
-    <button class="buy-btn" id="buyNowBtn2">
-      <i class="fa-solid fa-cart-shopping"></i> ซื้อเลย
-    </button>
-  </div>
-  <!-- MODAL ตะกร้า (ระบบเดิม) -->
+    <button class="buy-now-tiktok" id="buyNowBtn">ซื้อเลย</button>
+  </footer>
+
   <div class="modal-overlay" id="buyNowModal">
     <div class="modal-content">
       <i class="fas fa-times close-btn" id="closeModalBtn"></i>
       <div class="modal-header">
-        <img src="photo_2025-06-10_00-30-00.jpg" alt="Product Thumbnail">
+        <img src="concealer_photo.jpg" alt="M-BLITHE Concealer Thumbnail">
         <div>
           <div class="modal-header-title">M-BLITHE คอนซีลเลอร์</div>
           <div class="modal-header-price">฿299</div>
-          <div class="modal-selection-text">เลือกเฉดสี</div>
         </div>
       </div>
-      <!-- เฉดสี -->
-      <div class="options-container" id="modalOptionsContainer"></div>
+      <div style="margin-bottom:12px;"><b>เลือกเฉดสี:</b>
+        <div class="options-container" id="modalOptionsContainer"></div>
+      </div>
       <form id="orderForm" onsubmit="sendOrderToSheet(event);" autocomplete="off">
         <input type="hidden" name="product" id="productInput" required>
         <label for="name">ชื่อ-นามสกุล</label>
@@ -146,14 +428,14 @@
       </form>
     </div>
   </div>
-  <!-- Popup Success -->
+
   <div id="successPopup">
     <i class="fas fa-check-circle"></i>
     <p>สั่งซื้อสำเร็จ!</p>
     <span style="color:#222;font-weight:400;display:block;margin-top:7px;">เจ้าหน้าที่จะติดต่อกลับเพื่อยืนยันออเดอร์</span>
   </div>
+
   <script>
-    // Shopee Vibe + ระบบสั่งซื้อเดิม
     const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxvkT44c1V26IyzQW_4FhR4iQ0gmrNvdhF5TnneqNZ-21JXFczyZBo-8EFzhA69WshT/exec';
     const products = [
       { id: 'B01', text: 'B01 - ผิวขาวเหลือง' },
@@ -161,7 +443,7 @@
       { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ' },
       { id: 'B03', text: 'B03 - ผิวคล้ำ' }
     ];
-    // เฉดสีหน้า product card
+    // === เฉดสีหน้า card
     const optionsContainer = document.getElementById('optionsContainer');
     products.forEach(product => {
       const btn = document.createElement('button');
@@ -179,7 +461,7 @@
       };
       optionsContainer.appendChild(btn);
     });
-    // เฉดสีใน modal
+    // === เฉดสีใน modal
     const modalOptionsContainer = document.getElementById('modalOptionsContainer');
     products.forEach(product => {
       const btn = document.createElement('button');
@@ -197,14 +479,14 @@
       };
       modalOptionsContainer.appendChild(btn);
     });
+
     // Modal control
     const buyNowModal = document.getElementById('buyNowModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const buyNowBtn = document.getElementById('buyNowBtn');
-    const buyNowBtn2 = document.getElementById('buyNowBtn2');
+    const buyNowBtnFooter = document.getElementById('buyNowBtnFooter');
     function openModal() {
       buyNowModal.style.display = 'flex';
-      // Tracking InitiateCheckout ทุก pixel
       if (window.fbq) fbq('track', 'InitiateCheckout');
       if (window.ttq) ttq.track('InitiateCheckout');
       if (window.gtag) gtag('event', 'begin_checkout', {
@@ -214,50 +496,21 @@
     }
     function closeModal() { buyNowModal.style.display = 'none'; }
     buyNowBtn.addEventListener('click', openModal);
-    buyNowBtn2.addEventListener('click', openModal);
     closeModalBtn.addEventListener('click', closeModal);
     buyNowModal.addEventListener('click', (event) => {
       if (event.target === buyNowModal) { closeModal(); }
     });
 
-    // ===== Pixel Event Functions =====
-    function fbPurchaseEvent(orderValue = 299) {
-      if (typeof fbq !== "undefined") {
-        fbq('track', 'Purchase', { value: orderValue, currency: 'THB' });
-      }
+    // LINE Button Tracking (Header + Footer)
+    function lineTrackingHandler() {
+      if(window.fbq) fbq('track', 'Contact');
+      if(window.ttq) ttq.track('Contact');
     }
-    function tiktokPurchaseEvent(orderValue = 299) {
-      if (typeof ttq !== "undefined") {
-        ttq.track('CompletePayment', {
-          contents: [{content_id:'MB-CONCEALER',content_type:'product',quantity:1}],
-          value: orderValue,
-          currency: 'THB'
-        });
-      }
-    }
-    function googleAdsPurchaseEvent(orderValue = 299) {
-      if (typeof gtag !== "undefined") {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-17035064059/53zPCNHE2OIaEPvl-bo_',
-          'value': orderValue,
-          'currency': 'THB'
-        });
-      }
-    }
-    function fbAddLineEvent() {
-      if (typeof fbq !== "undefined") {
-        fbq('track', 'Contact');
-      }
-      if (typeof ttq !== "undefined") {
-        ttq.track('Contact');
-      }
-    }
-    // Add event to all .line-btn
-    document.getElementById('lineBtn1').addEventListener('click', fbAddLineEvent);
-    document.getElementById('lineBtn2').addEventListener('click', fbAddLineEvent);
-    // ===== End Pixel Event Functions =====
+    document.querySelectorAll('#addLineBtn, #addLineBtnFooter').forEach(el => {
+      if(el) el.addEventListener('click', lineTrackingHandler);
+    });
 
-    // ส่งฟอร์ม
+    // Form submit
     function sendOrderToSheet(event) {
       event.preventDefault();
       const orderForm = document.getElementById('orderForm');
@@ -270,7 +523,6 @@
       submitButton.disabled = true;
       submitButton.textContent = 'กำลังส่งข้อมูล...';
       const formData = new FormData(orderForm);
-      // Make sure phone is sent as string with leading zero
       const phoneField = orderForm.querySelector('#phone');
       if (phoneField && phoneField.value && !phoneField.value.startsWith("'")) {
         formData.set('phone', "'" + phoneField.value);
@@ -293,11 +545,20 @@
           successPopup.style.display = 'block';
           setTimeout(() => { successPopup.style.display = 'none'; }, 2400);
 
-          // === Trigger All Purchase Pixels ===
-          fbPurchaseEvent(299);
-          tiktokPurchaseEvent(299);
-          googleAdsPurchaseEvent(299);
-
+          // Trigger All Purchase Pixels
+          if(window.fbq) fbq('track', 'Purchase', {value: 299.00, currency: 'THB'});
+          if(window.ttq) ttq.track('CompletePayment', {
+            contents: [{content_id:'MB-CONCEALER',content_type:'product',quantity:1}],
+            value: 299.00,
+            currency: 'THB'
+          });
+          if(window.gtag) {
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17035064059/53zPCNHE2OIaEPvl-bo_',
+              'value': 299.00,
+              'currency': 'THB'
+            });
+          }
         } else {
           alert('เกิดข้อผิดพลาด: ' + (data.message || 'ไม่ทราบสาเหตุ'));
         }
