@@ -505,41 +505,45 @@
 ];
 
     // === เฉดสีหน้า card
-    const optionsContainer = document.getElementById('optionsContainer');
-    products.forEach(product => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = product.text;
-      btn.dataset.value = `${product.text} - 299 บาท`;
-      btn.onclick = () => {
-        document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        // sync ไป modal
-        document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        document.querySelector(`#modalOptionsContainer .option-btn[data-value="${btn.dataset.value}"]`).classList.add('selected');
-        document.getElementById('productInput').value = btn.dataset.value;
-      };
-      optionsContainer.appendChild(btn);
-    });
-    // === เฉดสีใน modal
-    const modalOptionsContainer = document.getElementById('modalOptionsContainer');
-    products.forEach(product => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = product.text;
-      btn.dataset.value = `${product.text} - 299 บาท`;
-      btn.onclick = () => {
-        document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        // sync ไป product
-        document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        document.querySelector(`#optionsContainer .option-btn[data-value="${btn.dataset.value}"]`).classList.add('selected');
-        document.getElementById('productInput').value = btn.dataset.value;
-      };
-      modalOptionsContainer.appendChild(btn);
-    });
+const optionsContainer = document.getElementById('optionsContainer');
+products.filter(product => product.stock).forEach(product => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'option-btn';
+  btn.textContent = product.text;
+  btn.dataset.value = `${product.text} - 299 บาท`;
+  btn.onclick = () => {
+    document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    // sync ไป modal
+    document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
+    const modalBtn = document.querySelector(`#modalOptionsContainer .option-btn[data-value="${btn.dataset.value}"]`);
+    if (modalBtn) modalBtn.classList.add('selected');
+    document.getElementById('productInput').value = btn.dataset.value;
+  };
+  optionsContainer.appendChild(btn);
+});
+
+// === เฉดสีใน modal
+const modalOptionsContainer = document.getElementById('modalOptionsContainer');
+products.filter(product => product.stock).forEach(product => {
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'option-btn';
+  btn.textContent = product.text;
+  btn.dataset.value = `${product.text} - 299 บาท`;
+  btn.onclick = () => {
+    document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    // sync ไป product
+    document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
+    const cardBtn = document.querySelector(`#optionsContainer .option-btn[data-value="${btn.dataset.value}"]`);
+    if (cardBtn) cardBtn.classList.add('selected');
+    document.getElementById('productInput').value = btn.dataset.value;
+  };
+  modalOptionsContainer.appendChild(btn);
+});
+
 
     // Modal control
     const buyNowModal = document.getElementById('buyNowModal');
