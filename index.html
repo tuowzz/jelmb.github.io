@@ -497,12 +497,13 @@
 
   <script>
     const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzBFS1zxkrbiOpcP-1wYxALRfU3wJprPRT9KJju2wWEY2Rdd7OnJbFDTCErH-amUZrO/exec';
-    const products = [
-      { id: 'B01', text: 'B01 - ผิวขาวเหลือง' },
-      { id: 'B02', text: 'B02 - ผิวสองสีขาวเหลือง' },
-      { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ' },
-      { id: 'B03', text: 'B03 - ผิวคล้ำ' }
-    ];
+   const products = [
+  { id: 'B01', text: 'B01 - ผิวขาวเหลือง', stock: true },
+  { id: 'B02', text: 'B02 - ผิวสองสีขาวเหลือง', stock: false },
+  { id: 'B2.5', text: 'B2.5 - ผิวสองสีคล้ำ', stock: true },   // หมด
+  { id: 'B03', text: 'B03 - ผิวคล้ำ', stock: true }
+];
+
     // === เฉดสีหน้า card
     const optionsContainer = document.getElementById('optionsContainer');
     products.forEach(product => {
