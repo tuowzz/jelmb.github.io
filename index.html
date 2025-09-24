@@ -350,34 +350,14 @@
   let selectedPack = PACKS[0];
 
   // ===== Utility =====
-  const $ = sel => document.querySelector(sel);
-  const $$ = sel => document.querySelectorAll(sel);
   const money = n => '฿' + Number(n).toLocaleString('th-TH');
 
-  // ===== Render pack buttons =====
-  function renderPacks(){
-    const host1 = $('#packOptions');
-    const host2 = $('#modalPacks');
-    host1.innerHTML = ''; host2.innerHTML = '';
-    PACKS.forEach(p=>{
-      const mk = ()=>{
-        const b = document.createElement('button');
-        b.type='button'; b.className='btn-option'; b.textContent=p.label; b.dataset.id=p.id;
-        b.onclick=()=>selectPack(p.id);
-        return b;
-      };
-      host1.appendChild(mk());
-      host2.appendChild(mk());
-    });
-    selectPack(selectedPack.id);
-  }
-
+  // ===== selectPack (แก้ให้ productInput มีราคาด้วย) =====
   function selectPack(id){
     selectedPack = PACKS.find(x=>x.id===id) || PACKS[0];
-    // toggle active
     $$('#packOptions .btn-option').forEach(b=>b.classList.toggle('active', b.dataset.id===selectedPack.id));
     $$('#modalPacks .btn-option').forEach(b=>b.classList.toggle('active', b.dataset.id===selectedPack.id));
-    // update price text
+
     $('#priceNow').textContent = money(selectedPack.price);
     $('#priceWas').textContent = money(selectedPack.compareAt);
     $('#mPrice').textContent = money(selectedPack.price);
@@ -385,13 +365,13 @@
     $('#packNote').textContent = selectedPack.note;
     $('#mNote').textContent = selectedPack.note;
 
-    // hidden fields (เผื่อสคริปต์อื่น ๆ ใช้)
     const priceStr = String(selectedPack.price);
-    const qtyStr = String(selectedPack.qty);
+    const qtyStr   = String(selectedPack.qty);
 
     $('#orderIdInput').value = '';
     $('#orderIdAlias').value = '';
 
+    // <<< ใส่ราคาเพิ่มใน productInput >>>
     $('#productInput').value = `Gel Cleanser 50ml - ${selectedPack.label} | ${money(selectedPack.price)}`;
     $('#packIdInput').value = selectedPack.id;
     $('#packLabelInput').value = selectedPack.label;
@@ -405,68 +385,46 @@
     $('#thaiPriceInput').value   = priceStr;
     $('#codAmountInput').value   = priceStr;
 
-    // labels
     $('#labelAlias').value = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
     $('#noteAlias').value  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
   }
 
-  // ===== Modal control =====
-  const openModal = () => {
-    $('#overlay').style.display='block';
-    $('#modal').style.display='block';
-    if (window.fbq) fbq('track', 'InitiateCheckout', {value:selectedPack.price, currency:'THB'});
-    if (window.ttq) ttq.track('InitiateCheckout');
-    if (window.gtag) gtag('event','begin_checkout',{value:selectedPack.price, currency:'THB'});
-  };
-  const closeModal = () => { $('#overlay').style.display='none'; $('#modal').style.display='none'; };
-  $('#btnBuy').addEventListener('click', openModal);
-  $('#x').addEventListener('click', closeModal);
-  $('#overlay').addEventListener('click', closeModal);
-
-  // ===== LINE tracking =====
-  function trackLine(){ if(window.fbq) fbq('track','Contact'); if(window.ttq) ttq.track('Contact'); }
-  if (document.getElementById('btnLineTop'))    document.getElementById('btnLineTop').addEventListener('click', trackLine);
-  if (document.getElementById('btnLineBottom')) document.getElementById('btnLineBottom').addEventListener('click', trackLine);
-
-  // ===== Order submit =====
+  // ===== Order submit (แก้ productStr ให้มีราคา) =====
   async function submitOrder(e){
     e.preventDefault();
     const btn = $('#submitBtn');
     btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...';
 
     const formEl = $('#orderForm');
-
-    // sync ราคา/แพ็ก ให้ตรงล่าสุด
     selectPack(selectedPack.id);
 
     const fd = new FormData(formEl);
 
-    // ===== Build payload =====
     const orderId    = 'ORD-' + Date.now();
     const nameVal    = ($('#name').value || '').trim();
     const phoneRaw   = ($('#phone').value || '').trim().replace(/\s+/g,'');
-    const phoneVal   = phoneRaw ? ("'" + phoneRaw.replace(/\D/g,'')) : ''; // ป้องกัน 0 หายในชีต
+    const phoneVal   = phoneRaw ? ("'" + phoneRaw.replace(/\D/g,'')) : '';
     const addressVal = ($('#address').value || '').trim();
-    const productStr = `Gel Cleanser 50ml - ${selectedPack.label}`;
+    // <<< ใส่ราคาเพิ่มใน productStr >>>
+    const productStr = `Gel Cleanser 50ml - ${selectedPack.label} | ${money(selectedPack.price)}`;
 
-    // >>> คีย์ที่ Apps Script ใช้จริง (ต้องมี และเป็นตัวพิมพ์เล็ก)
+    // คีย์หลักที่ Apps Script ใช้
     fd.set('order_id', orderId);
     fd.set('product',  productStr);
     fd.set('name',     nameVal);
     fd.set('phone',    phoneVal);
     fd.set('address',  addressVal);
 
-    // (คง alias เดิมไว้ เผื่อใช้งานในชีต)
+    // alias
     fd.set('Order ID', orderId);
     fd.set('Product',  productStr);
     fd.set('Phone',    phoneVal);
 
-    // ราคากับ alias อื่น ๆ
+    // ราคา/qty alias
     fd.set('amount', String(selectedPack.price));
     fd.set('price',  String(selectedPack.price));
     fd.set('qty',    String(selectedPack.qty));
     fd.set('pack_label', selectedPack.label);
-
     fd.set('total',        String(selectedPack.price));
     fd.set('total_price',  String(selectedPack.price));
     fd.set('ยอดรวม',        String(selectedPack.price));
@@ -478,17 +436,16 @@
     fd.set('Label', _label);
     fd.set('หมายเหตุ', _note);
 
-    // DEBUG: ดูค่าที่จะส่ง (เปิด DevTools > Console)
-    try { const entries=[]; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); console.log('[ORDER FORMSENT]', entries.join('&')); } catch(_){}
+    try { 
+      const entries = []; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); 
+      console.log('[ORDER FORMSENT]', entries.join('&')); 
+    } catch(_){}
 
     try{
-      const res  = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
+      const res = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
       const data = await res.json();
-
       if(data.result==='success'){
         closeModal(); formEl.reset();
-
-        // Pixels
         if(window.fbq) fbq('track','Purchase',{value:selectedPack.price, currency:'THB'});
         if(window.ttq) ttq.track('CompletePayment',{
           contents:[{content_id:'GEL-50ML',content_type:'product',quantity:selectedPack.qty}],
@@ -498,10 +455,8 @@
           'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_',
           'value':selectedPack.price,'currency':'THB'
         });
-
-        // UI success
         showOk();
-        showSaleToast({ name: (nameVal || 'ลูกค้า'), pack:selectedPack.label, price:selectedPack.price });
+        showSaleToast({ name: (nameVal||'ลูกค้า'), pack:selectedPack.label, price:selectedPack.price });
       } else {
         alert('เกิดข้อผิดพลาด: ' + (data.message||'ไม่ทราบสาเหตุ'));
       }
@@ -512,7 +467,7 @@
       btn.disabled = false; btn.textContent = 'ยืนยันสั่งซื้อ';
     }
   }
-
+  
   function showOk(){
     const box = $('#ok'); box.style.display='flex'; setTimeout(()=> box.style.display='none', 2200);
   }
