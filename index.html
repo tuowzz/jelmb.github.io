@@ -119,7 +119,7 @@
     .video video { max-width:360px; width:100%; border-radius:14px; box-shadow:0 2px 12px rgba(0,0,0,.08); }
 
     /* Footer bar */
-    .sticky { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); height:64px; display:flex; }
+    .sticky { position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid var(--border); height:64px; display:flex; z-index:50; }
     .sticky .btn-line { width:38%; border-radius:0; }
     .sticky .btn-buy { width:62%; border:none; background:var(--primary); color:#fff; font-weight:800; font-size:1.15rem; cursor:pointer; }
 
@@ -146,9 +146,6 @@
     .toast strong { color:#7a5ccf; }
     @keyframes toastSlide { from { transform: translateY(12px); opacity:0 } to { transform: translateY(0); opacity:1 } }
 
-    @media (max-width: 430px) { .card { margin:10px 8px; } }
-      @media (max-width: 430px) { .card { margin:10px 8px; } }
-
     /* Reviews */
     .reviews h3{ margin:0 0 10px 0; font-size:1.05rem; }
     .rev{ border-top:1px solid #f0eefc; padding-top:10px; margin-top:10px; }
@@ -161,6 +158,8 @@
     .rev .shots img{ width:220px; max-width:100%; border-radius:11px; border:1px solid #eee; }
     .rev .meta{ color:#9aa1ad; font-size:.9rem; margin-top:6px; }
     .seller-reply{ background:#fbf9ff; padding:8px 12px; border-radius:8px; margin-top:8px; font-size:.98rem; color:#6b6b6b; border:1px solid var(--border); }
+
+    @media (max-width: 430px) { .card { margin:10px 8px; } }
   </style>
 </head>
 <body>
@@ -174,28 +173,26 @@
         <b>เจลล้างหน้า 50ml</b> | อ่อนโยน pH-balanced | <span style="color:var(--primary-strong)">ล้างรองพื้น/คอนซีลเลอร์/กันแดด</span>
       </h1>
     </header>
-    
-   <section class="card video">
+
+    <!-- วิดีโอแนะนำสินค้า ช่วงต้น -->
+    <section class="card video">
       <video autoplay muted loop playsinline controls>
-        <source src="gel_review.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
+        <source src="intro_demo.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
       </video>
-      <div style="font-size:.93rem;color:#888;margin-top:6px">รีวิวการใช้งานจริง</div>
+      <div style="font-size:.93rem;color:#888;margin-top:6px">คลิปแนะนำสินค้า – วิธีใช้ และผลลัพธ์หลังล้าง</div>
     </section>
-  </div>
+
+    <!-- แถบความน่าเชื่อถือ -->
     <div class="trust">✅ สูตรอ่อนโยน | ล้างเมคอัพได้หมดจด | ลดสิวอุดตัน | ส่งฟรีทั่วประเทศ | เก็บปลายทาง</div>
 
+    <!-- แกลเลอรีภาพสินค้า -->
     <section class="card gallery">
       <img src="gel_main.jpg" alt="เจลล้างหน้า 50ml ล้างรองพื้น คอนซีลเลอร์">
-      <div style="text-align:center;margin-top:14px">
-        <video autoplay muted loop playsinline controls>
-          <source src="intro_demo.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
-        </video>
-        <div style="font-size:.93rem;color:#888;margin-top:6px">คลิปแนะนำสินค้า – วิธีใช้ และผลลัพธ์หลังล้าง</div>
-      </div>
     </section>
 
     <section style="padding:0 16px 6px;color:#7a7a7a;font-size:.95rem">#เจลล้างหน้า #เจลล้างหน้าผิวแพ้ง่าย #ล้างรองพื้น #ล้างคอนซีลเลอร์ #pHbalanced #อ่อนโยน</section>
 
+    <!-- ราคา + แพ็ก -->
     <section class="card">
       <div class="price"><span class="now" id="priceNow">฿199</span><span class="was" id="priceWas">฿259</span></div>
       <div class="title">✨ เจลล้างหน้า 50ml อ่อนโยน ล้างรองพื้น/คอนซีลเลอร์ ได้สะอาดหมดจด</div>
@@ -207,6 +204,7 @@
       <div class="scarcity" style="margin-top:12px">🎉 <b>โปรพิเศษ! สต็อกจำกัด</b> | ส่งฟรีวันนี้เท่านั้น</div>
     </section>
 
+    <!-- ร้านค้า + ปุ่มไลน์ -->
     <section class="card shop">
       <div class="avatar">MB</div>
       <div style="flex:1">
@@ -215,23 +213,17 @@
       </div>
     </section>
 
+    <!-- ฟีเจอร์สินค้า -->
     <section class="card features">
       <h3 style="margin:0 0 8px 0; font-size:1.05rem">รายละเอียดสินค้า</h3>
       <div class="row"><i class="fa-solid fa-droplet icon"></i> สูตรอ่อนโยน pH-balanced ผิวไม่เอี๊ยดตึง</div>
       <div class="row"><i class="fa-solid fa-wand-magic-sparkles icon"></i> ล้าง <b>รองพื้น/คอนซีลเลอร์/กันแดด</b> ได้หมดจด ลดโอกาสอุดตัน</div>
       <div class="row"><i class="fa-solid fa-leaf icon"></i> ปราศจากแอลกอฮอล์/พาราเบน/ซัลเฟต (SLS/SLES)</div>
       <div class="row"><i class="fa-solid fa-flask icon"></i> เหมาะกับผิวมัน/เป็นสิว/แพ้ง่าย ใช้ได้เช้า–เย็น</div>
-      <div style="color:#9a9a9a;font-size:.9rem">* ผลลัพธ์อาจแตกต่างกันไปในแต่ละบุคคล</div>
+      <div style="color:#9a9aa9;font-size:.9rem">* ผลลัพธ์อาจแตกต่างกันไปในแต่ละบุคคล</div>
     </section>
-  
-    <section class="card video">
-      <video autoplay muted loop playsinline controls>
-        <source src="gel_review.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
-      </video>
-      <div style="font-size:.93rem;color:#888;margin-top:6px">รีวิวการใช้งานจริง</div>
-    </section>
-  
-    <!-- Reviews Section -->
+
+    <!-- รีวิวลูกค้าจริง (ตรงกลางเพจ) -->
     <section class="card reviews">
       <h3><i class="fa-solid fa-comments"></i> รีวิวจากลูกค้าจริง</h3>
 
@@ -266,13 +258,13 @@
       </div>
     </section>
 
+    <!-- คลิปแพ็คของ ส่งของ (ท้ายเพจ) -->
     <section class="card video">
       <video autoplay muted loop playsinline controls>
-        <source src="SaveTik.co_7516781232450014482.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
+        <source src="pack_ship.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
       </video>
       <div style="font-size:.96rem;color:#7a7a7a;margin-top:6px">คลิปแพ็คของจริง + ส่งของทุกวัน จันทร์–เสาร์ 🚚</div>
     </section>
-  
   </div>
 
   <!-- Sticky Footer -->
@@ -300,21 +292,34 @@
     </div>
 
     <form class="form" id="orderForm" onsubmit="submitOrder(event)">
-      <!-- hidden fields to ensure Sheets receives numeric values with expected keys -->
+      <!-- hidden fields to ensure Sheets receives values with expected keys -->
+      <input type="hidden" name="order_id" id="orderIdInput" />
+      <input type="hidden" name="Order ID" id="orderIdAlias" />
+
       <input type="hidden" name="product" id="productInput" />
       <input type="hidden" name="pack_id" id="packIdInput" />
+      <input type="hidden" name="pack_label" id="packLabelInput" />
+
+      <!-- price/qty + aliases (เผื่อสคริปต์อ่านชื่อคีย์ต่างกัน) -->
       <input type="hidden" name="amount" id="amountInput" />
       <input type="hidden" name="price" id="priceInput" />
       <input type="hidden" name="qty" id="qtyInput" />
-      <input type="hidden" name="pack_label" id="packLabelInput" />
-      <input type="hidden" name="product" id="productInput" />
-      <input type="hidden" name="pack_id" id="packIdInput" />
+      <input type="hidden" name="total" id="totalInput" />
+      <input type="hidden" name="total_price" id="totalPriceInput" />
+      <input type="hidden" name="ยอดรวม" id="thaiTotalInput" />
+      <input type="hidden" name="ราคา" id="thaiPriceInput" />
+      <input type="hidden" name="cod_amount" id="codAmountInput" />
+
+      <!-- columns that exist in your sheet for displaying price textually -->
+      <input type="hidden" name="Label" id="labelAlias" />
+      <input type="hidden" name="หมายเหตุ" id="noteAlias" />
+
       <label for="name">ชื่อ-นามสกุล</label>
-      <input id="name" name="name" type="text" required placeholder="กรอกชื่อ-นามสกุล" />
+      <input id="name" name="Name" type="text" required placeholder="กรอกชื่อ-นามสกุล" />
       <label for="phone">เบอร์โทรศัพท์</label>
-      <input id="phone" name="phone" type="text" required placeholder="ตัวอย่าง: 0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทรศัพท์ 10 หลัก" />
+      <input id="phone" name="Phone" type="text" required placeholder="ตัวอย่าง: 0812345678" pattern="^[0-9]{10}$" title="กรอกเบอร์โทรศัพท์ 10 หลัก" />
       <label for="address">ที่อยู่จัดส่ง</label>
-      <textarea id="address" name="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
+      <textarea id="address" name="Address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
       <div style="font-size:12px;color:#666;margin-top:4px">ข้อมูลของคุณจะถูกใช้เพื่อการยืนยันคำสั่งซื้อและจัดส่งสินค้าเท่านั้น และจะถูกเก็บรักษาตามมาตรการ PDPA ของเรา</div>
       <button type="submit" class="submit" id="submitBtn">ยืนยันสั่งซื้อ</button>
     </form>
@@ -379,13 +384,29 @@
     $('#mTitle').textContent = `เจลล้างหน้า 50ml (${selectedPack.label})`;
     $('#packNote').textContent = selectedPack.note;
     $('#mNote').textContent = selectedPack.note;
-    // hidden fields
+    // hidden fields (สอดคล้องกับคีย์ของชีตและเผื่อ alias)
+    const priceStr = String(selectedPack.price);
+    const qtyStr = String(selectedPack.qty);
+
+    $('#orderIdInput').value = '';
+    $('#orderIdAlias').value = '';
+
     $('#productInput').value = `Gel Cleanser 50ml - ${selectedPack.label}`;
     $('#packIdInput').value = selectedPack.id;
-    $('#amountInput').value = String(selectedPack.price);
-    $('#priceInput').value = String(selectedPack.price);
-    $('#qtyInput').value = String(selectedPack.qty);
     $('#packLabelInput').value = selectedPack.label;
+
+    $('#amountInput').value = priceStr;
+    $('#priceInput').value  = priceStr;
+    $('#qtyInput').value    = qtyStr;
+    $('#totalInput').value       = priceStr;
+    $('#totalPriceInput').value  = priceStr;
+    $('#thaiTotalInput').value   = priceStr;
+    $('#thaiPriceInput').value   = priceStr;
+    $('#codAmountInput').value   = priceStr;
+
+    // labels (จะแนบอีกครั้งตอน submit)
+    $('#labelAlias').value = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
+    $('#noteAlias').value  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
   }
 
   // ===== Modal control =====
@@ -413,21 +434,52 @@
     btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...';
 
     const formEl = $('#orderForm');
+
+    // sync ข้อมูลล่าสุดอีกครั้งก่อนส่ง
+    selectPack(selectedPack.id);
+
     const fd = new FormData(formEl);
+
+    // สร้าง Order ID และ map ให้เข้ากับหัวคอลัมน์จริง
+    const _orderId = 'ORD-' + Date.now();
+    fd.set('order_id', _orderId);
+    fd.set('Order ID', _orderId);
+    try { $('#orderIdInput').value = _orderId; $('#orderIdAlias').value = _orderId; } catch(_){ }
+
+    // กันเบอร์โทรถูก format เป็นตัวเลขในชีต
     const phone = $('#phone').value || '';
-    if (phone && !phone.startsWith("'")) fd.set('phone', "'"+phone);
-    fd.set('order_id', 'ORD-' + Date.now());
+    if (phone && !phone.startsWith("'")) fd.set('Phone', "'"+phone);
+
     // keep both common keys in case Apps Script expects either "amount" or "price"
     fd.set('amount', String(selectedPack.price));
-    fd.set('price', String(selectedPack.price));
-    fd.set('qty', String(selectedPack.qty));
+    fd.set('price',  String(selectedPack.price));
+    fd.set('qty',    String(selectedPack.qty));
     fd.set('pack_label', selectedPack.label);
+    fd.set('product', `Gel Cleanser 50ml - ${selectedPack.label}`);
+
+    // aliases (maximize compatibility)
+    fd.set('total',        String(selectedPack.price));
+    fd.set('total_price',  String(selectedPack.price));
+    fd.set('ยอดรวม',        String(selectedPack.price));
+    fd.set('ราคา',          String(selectedPack.price));
+    fd.set('cod_amount',   String(selectedPack.price));
+
+    // คอลัมน์ที่มีจริงในชีต (สำหรับแสดงราคา/จำนวนเป็นข้อความ)
+    const _label = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
+    const _note  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
+    fd.set('Label', _label);
+    fd.set('หมายเหตุ', _note);
+
+    try{ $('#labelAlias').value = _label; $('#noteAlias').value = _note; }catch(_){ }
+
+    // DEBUG: log ค่าที่ส่ง (ลบได้ภายหลัง)
+    try { const entries = []; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); console.log('[ORDER FORMSENT]', entries.join('&')); } catch(_){}
 
     try{
       const res = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
       const data = await res.json();
       if(data.result==='success'){
-        closeModal(); $('#orderForm').reset();
+        closeModal(); formEl.reset();
         // Pixels purchase
         if(window.fbq) fbq('track','Purchase',{value:selectedPack.price, currency:'THB'});
         if(window.ttq) ttq.track('CompletePayment',{contents:[{content_id:'GEL-50ML',content_type:'product',quantity:selectedPack.qty}], value:selectedPack.price, currency:'THB'});
