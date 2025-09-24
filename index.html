@@ -265,7 +265,7 @@
     </section>
   </div>
 
-  <!-- Sticky Footer -->
+   <!-- Sticky Footer -->
   <div class="sticky">
     <a href="https://lin.ee/wKelfsp" target="_blank" class="btn-line" id="btnLineBottom"><i class="fa-brands fa-line"></i> แอดไลน์รับโปร</a>
     <button class="btn-buy" id="btnBuy">สั่งซื้อเลย</button>
@@ -360,14 +360,14 @@
     const host2 = $('#modalPacks');
     host1.innerHTML = ''; host2.innerHTML = '';
     PACKS.forEach(p=>{
-      const mk = (inModal=false)=>{
+      const mk = ()=>{
         const b = document.createElement('button');
         b.type='button'; b.className='btn-option'; b.textContent=p.label; b.dataset.id=p.id;
         b.onclick=()=>selectPack(p.id);
         return b;
       };
-      host1.appendChild(mk(false));
-      host2.appendChild(mk(true));
+      host1.appendChild(mk());
+      host2.appendChild(mk());
     });
     selectPack(selectedPack.id);
   }
@@ -385,7 +385,7 @@
     $('#packNote').textContent = selectedPack.note;
     $('#mNote').textContent = selectedPack.note;
 
-    // hidden fields (ให้ตรงหัวคอลัมน์ชีต)
+    // hidden fields (เผื่อสคริปต์อื่น ๆ ใช้)
     const priceStr = String(selectedPack.price);
     const qtyStr = String(selectedPack.qty);
 
@@ -405,7 +405,7 @@
     $('#thaiPriceInput').value   = priceStr;
     $('#codAmountInput').value   = priceStr;
 
-    // labels (จะแนบอีกทีตอน submit)
+    // labels
     $('#labelAlias').value = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
     $('#noteAlias').value  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
   }
@@ -425,8 +425,8 @@
 
   // ===== LINE tracking =====
   function trackLine(){ if(window.fbq) fbq('track','Contact'); if(window.ttq) ttq.track('Contact'); }
-  $('#btnLineTop').addEventListener('click', trackLine);
-  $('#btnLineBottom').addEventListener('click', trackLine);
+  if (document.getElementById('btnLineTop'))    document.getElementById('btnLineTop').addEventListener('click', trackLine);
+  if (document.getElementById('btnLineBottom')) document.getElementById('btnLineBottom').addEventListener('click', trackLine);
 
   // ===== Order submit =====
   async function submitOrder(e){
@@ -436,56 +436,72 @@
 
     const formEl = $('#orderForm');
 
-    // sync ข้อมูลล่าสุดอีกครั้งก่อนส่ง
+    // sync ราคา/แพ็ก ให้ตรงล่าสุด
     selectPack(selectedPack.id);
 
     const fd = new FormData(formEl);
 
-    // สร้าง Order ID และ map ให้เข้ากับหัวคอลัมน์จริง
-    const _orderId = 'ORD-' + Date.now();
-    fd.set('order_id', _orderId);
-    fd.set('Order ID', _orderId);
-    try { $('#orderIdInput').value = _orderId; $('#orderIdAlias').value = _orderId; } catch(_){}
+    // ===== Build payload =====
+    const orderId    = 'ORD-' + Date.now();
+    const nameVal    = ($('#name').value || '').trim();
+    const phoneRaw   = ($('#phone').value || '').trim().replace(/\s+/g,'');
+    const phoneVal   = phoneRaw ? ("'" + phoneRaw.replace(/\D/g,'')) : ''; // ป้องกัน 0 หายในชีต
+    const addressVal = ($('#address').value || '').trim();
+    const productStr = `Gel Cleanser 50ml - ${selectedPack.label}`;
 
-    // กันเบอร์โทรถูก format เป็นตัวเลขในชีต (ใส่ ' นำหน้า)
-    const phone = $('#phone').value || '';
-    if (phone && !phone.startsWith("'")) fd.set('Phone', "'"+phone);
+    // >>> คีย์ที่ Apps Script ใช้จริง (ต้องมี และเป็นตัวพิมพ์เล็ก)
+    fd.set('order_id', orderId);
+    fd.set('product',  productStr);
+    fd.set('name',     nameVal);
+    fd.set('phone',    phoneVal);
+    fd.set('address',  addressVal);
 
-    // product + price/qty (คีย์หลัก)
-    fd.set('Product', `Gel Cleanser 50ml - ${selectedPack.label}`);
+    // (คง alias เดิมไว้ เผื่อใช้งานในชีต)
+    fd.set('Order ID', orderId);
+    fd.set('Product',  productStr);
+    fd.set('Phone',    phoneVal);
+
+    // ราคากับ alias อื่น ๆ
     fd.set('amount', String(selectedPack.price));
     fd.set('price',  String(selectedPack.price));
     fd.set('qty',    String(selectedPack.qty));
     fd.set('pack_label', selectedPack.label);
 
-    // aliases (บางสคริปต์ใช้ชื่อคอลัมน์ต่างกัน)
     fd.set('total',        String(selectedPack.price));
     fd.set('total_price',  String(selectedPack.price));
     fd.set('ยอดรวม',        String(selectedPack.price));
     fd.set('ราคา',          String(selectedPack.price));
-    fd.set('cod_amount',   String(selectedPack.price));
+    fd.set('cod_amount',    String(selectedPack.price));
 
-    // คอลัมน์สำหรับอ่านง่ายในชีต
     const _label = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
     const _note  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
     fd.set('Label', _label);
     fd.set('หมายเหตุ', _note);
 
-    // DEBUG: log ค่าที่ส่ง
-    try { const entries = []; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); console.log('[ORDER FORMSENT]', entries.join('&')); } catch(_){}
+    // DEBUG: ดูค่าที่จะส่ง (เปิด DevTools > Console)
+    try { const entries=[]; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); console.log('[ORDER FORMSENT]', entries.join('&')); } catch(_){}
 
     try{
-      const res = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
+      const res  = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
       const data = await res.json();
+
       if(data.result==='success'){
         closeModal(); formEl.reset();
-        // Pixels purchase
+
+        // Pixels
         if(window.fbq) fbq('track','Purchase',{value:selectedPack.price, currency:'THB'});
-        if(window.ttq) ttq.track('CompletePayment',{contents:[{content_id:'GEL-50ML',content_type:'product',quantity:selectedPack.qty}], value:selectedPack.price, currency:'THB'});
-        if(window.gtag) gtag('event','conversion',{'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_','value':selectedPack.price,'currency':'THB'});
-        // Success UI
+        if(window.ttq) ttq.track('CompletePayment',{
+          contents:[{content_id:'GEL-50ML',content_type:'product',quantity:selectedPack.qty}],
+          value:selectedPack.price, currency:'THB'
+        });
+        if(window.gtag) gtag('event','conversion',{
+          'send_to':'AW-17035064059/53zPCNHE2OIaEPvl-bo_',
+          'value':selectedPack.price,'currency':'THB'
+        });
+
+        // UI success
         showOk();
-        showSaleToast({ name: ($('#name').value||'ลูกค้า'), pack:selectedPack.label, price:selectedPack.price });
+        showSaleToast({ name: (nameVal || 'ลูกค้า'), pack:selectedPack.label, price:selectedPack.price });
       } else {
         alert('เกิดข้อผิดพลาด: ' + (data.message||'ไม่ทราบสาเหตุ'));
       }
