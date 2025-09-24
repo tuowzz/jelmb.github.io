@@ -230,9 +230,7 @@
       <div class="rev">
         <div class="rev-head"><span class="stars">⭐⭐⭐⭐⭐</span><span class="author">P**m</span></div>
         <p class="text">ล้างรองพื้นกับกันแดดออกเกลี้ยงมากค่ะ ผิวไม่เอี๊ยดตึง เหมาะกับผิวแพ้ง่ายสุด ๆ ใช้เช้า–เย็นแล้วไม่แห้ง</p>
-        <div class="shots">
-          <img src="review1.jpg" alt="รีวิวการใช้เจลล้างหน้า รูปที่ 1">
-        </div>
+        <div class="shots"><img src="review1.jpg" alt="รีวิวการใช้เจลล้างหน้า รูปที่ 1"></div>
         <div class="meta">02-09</div>
         <div class="seller-reply"><b>จากร้านค้า:</b><br>ขอบคุณสำหรับรีวิวค่ะ ดีใจที่ชอบความอ่อนโยนของสูตรนี้นะคะ 💜</div>
       </div>
@@ -292,15 +290,15 @@
     </div>
 
     <form class="form" id="orderForm" onsubmit="submitOrder(event)">
-      <!-- hidden fields to ensure Sheets receives values with expected keys -->
+      <!-- hidden fields for Sheets -->
       <input type="hidden" name="order_id" id="orderIdInput" />
       <input type="hidden" name="Order ID" id="orderIdAlias" />
 
-      <input type="hidden" name="product" id="productInput" />
+      <input type="hidden" name="Product" id="productInput" />
       <input type="hidden" name="pack_id" id="packIdInput" />
       <input type="hidden" name="pack_label" id="packLabelInput" />
 
-      <!-- price/qty + aliases (เผื่อสคริปต์อ่านชื่อคีย์ต่างกัน) -->
+      <!-- price/qty + aliases -->
       <input type="hidden" name="amount" id="amountInput" />
       <input type="hidden" name="price" id="priceInput" />
       <input type="hidden" name="qty" id="qtyInput" />
@@ -310,7 +308,7 @@
       <input type="hidden" name="ราคา" id="thaiPriceInput" />
       <input type="hidden" name="cod_amount" id="codAmountInput" />
 
-      <!-- columns that exist in your sheet for displaying price textually -->
+      <!-- display columns -->
       <input type="hidden" name="Label" id="labelAlias" />
       <input type="hidden" name="หมายเหตุ" id="noteAlias" />
 
@@ -362,12 +360,14 @@
     const host2 = $('#modalPacks');
     host1.innerHTML = ''; host2.innerHTML = '';
     PACKS.forEach(p=>{
-      const b1 = document.createElement('button');
-      b1.type='button'; b1.className='btn-option'; b1.textContent=p.label; b1.dataset.id=p.id; b1.onclick=()=>selectPack(p.id);
-      host1.appendChild(b1);
-      const b2 = document.createElement('button');
-      b2.type='button'; b2.className='btn-option'; b2.textContent=p.label; b2.dataset.id=p.id; b2.onclick=()=>selectPack(p.id);
-      host2.appendChild(b2);
+      const mk = (inModal=false)=>{
+        const b = document.createElement('button');
+        b.type='button'; b.className='btn-option'; b.textContent=p.label; b.dataset.id=p.id;
+        b.onclick=()=>selectPack(p.id);
+        return b;
+      };
+      host1.appendChild(mk(false));
+      host2.appendChild(mk(true));
     });
     selectPack(selectedPack.id);
   }
@@ -384,14 +384,15 @@
     $('#mTitle').textContent = `เจลล้างหน้า 50ml (${selectedPack.label})`;
     $('#packNote').textContent = selectedPack.note;
     $('#mNote').textContent = selectedPack.note;
-    // hidden fields (สอดคล้องกับคีย์ของชีตและเผื่อ alias)
+
+    // hidden fields (ให้ตรงหัวคอลัมน์ชีต)
     const priceStr = String(selectedPack.price);
     const qtyStr = String(selectedPack.qty);
 
     $('#orderIdInput').value = '';
     $('#orderIdAlias').value = '';
 
-    $('#productInput').value = `Gel Cleanser 50ml - ${selectedPack.label}`;
+    $('#productInput').value = `Gel Cleanser 50ml - ${selectedPack.label}`; // Product (P ใหญ่)
     $('#packIdInput').value = selectedPack.id;
     $('#packLabelInput').value = selectedPack.label;
 
@@ -404,7 +405,7 @@
     $('#thaiPriceInput').value   = priceStr;
     $('#codAmountInput').value   = priceStr;
 
-    // labels (จะแนบอีกครั้งตอน submit)
+    // labels (จะแนบอีกทีตอน submit)
     $('#labelAlias').value = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
     $('#noteAlias').value  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
   }
@@ -444,35 +445,33 @@
     const _orderId = 'ORD-' + Date.now();
     fd.set('order_id', _orderId);
     fd.set('Order ID', _orderId);
-    try { $('#orderIdInput').value = _orderId; $('#orderIdAlias').value = _orderId; } catch(_){ }
+    try { $('#orderIdInput').value = _orderId; $('#orderIdAlias').value = _orderId; } catch(_){}
 
-    // กันเบอร์โทรถูก format เป็นตัวเลขในชีต
+    // กันเบอร์โทรถูก format เป็นตัวเลขในชีต (ใส่ ' นำหน้า)
     const phone = $('#phone').value || '';
     if (phone && !phone.startsWith("'")) fd.set('Phone', "'"+phone);
 
-    // keep both common keys in case Apps Script expects either "amount" or "price"
+    // product + price/qty (คีย์หลัก)
+    fd.set('Product', `Gel Cleanser 50ml - ${selectedPack.label}`);
     fd.set('amount', String(selectedPack.price));
     fd.set('price',  String(selectedPack.price));
     fd.set('qty',    String(selectedPack.qty));
     fd.set('pack_label', selectedPack.label);
-    fd.set('product', `Gel Cleanser 50ml - ${selectedPack.label}`);
 
-    // aliases (maximize compatibility)
+    // aliases (บางสคริปต์ใช้ชื่อคอลัมน์ต่างกัน)
     fd.set('total',        String(selectedPack.price));
     fd.set('total_price',  String(selectedPack.price));
     fd.set('ยอดรวม',        String(selectedPack.price));
     fd.set('ราคา',          String(selectedPack.price));
     fd.set('cod_amount',   String(selectedPack.price));
 
-    // คอลัมน์ที่มีจริงในชีต (สำหรับแสดงราคา/จำนวนเป็นข้อความ)
+    // คอลัมน์สำหรับอ่านง่ายในชีต
     const _label = `COD: ${money(selectedPack.price)} • ${selectedPack.label}`;
     const _note  = `ราคา ${money(selectedPack.price)} / Qty ${selectedPack.qty}`;
     fd.set('Label', _label);
     fd.set('หมายเหตุ', _note);
 
-    try{ $('#labelAlias').value = _label; $('#noteAlias').value = _note; }catch(_){ }
-
-    // DEBUG: log ค่าที่ส่ง (ลบได้ภายหลัง)
+    // DEBUG: log ค่าที่ส่ง
     try { const entries = []; fd.forEach((v,k)=>entries.push(`${k}=${v}`)); console.log('[ORDER FORMSENT]', entries.join('&')); } catch(_){}
 
     try{
@@ -502,7 +501,7 @@
     const box = $('#ok'); box.style.display='flex'; setTimeout(()=> box.style.display='none', 2200);
   }
 
-  // ===== Sales Toast =====
+  // ===== Sales Toast (ป๊อปอัพเด้งว่ามีคนสั่งซื้อ) =====
   const NAMES = ['เอม','นัท','โบว์','กวาง','ปอ','ออย','กิ๊ฟ','มาย','เบส','พิม','นิว','อิง','ก้อง','น้ำผึ้ง','ก้อย'];
   const PROVINCES = ['กรุงเทพฯ','นนทบุรี','ปทุมธานี','ชลบุรี','เชียงใหม่','ขอนแก่น','นครราชสีมา','ภูเก็ต','สงขลา','นครปฐม'];
   const maskName = n => (n? (n.trim()[0]||'ลูกค้า') + (n.length>1?'**':'*') : 'ลูกค้า');
@@ -521,7 +520,12 @@
 
   function scheduleFakeToast(){
     const p = PACKS[Math.floor(Math.random()*PACKS.length)];
-    showSaleToast({ name: NAMES[Math.floor(Math.random()*NAMES.length)], pack:p.label, price:p.price, province: PROVINCES[Math.floor(Math.random()*PROVINCES.length)] });
+    showSaleToast({
+      name: NAMES[Math.floor(Math.random()*NAMES.length)],
+      pack: p.label,
+      price: p.price,
+      province: PROVINCES[Math.floor(Math.random()*PROVINCES.length)]
+    });
     const next = 16000 + Math.floor(Math.random()*14000); // 16–30s
     setTimeout(scheduleFakeToast, next);
   }
