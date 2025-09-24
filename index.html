@@ -147,6 +147,20 @@
     @keyframes toastSlide { from { transform: translateY(12px); opacity:0 } to { transform: translateY(0); opacity:1 } }
 
     @media (max-width: 430px) { .card { margin:10px 8px; } }
+      @media (max-width: 430px) { .card { margin:10px 8px; } }
+
+    /* Reviews */
+    .reviews h3{ margin:0 0 10px 0; font-size:1.05rem; }
+    .rev{ border-top:1px solid #f0eefc; padding-top:10px; margin-top:10px; }
+    .rev:first-child{ border-top:none; padding-top:0; margin-top:0; }
+    .rev-head{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }
+    .rev .stars{ color:#f9d71c; }
+    .rev .author{ font-weight:600; font-size:.93rem; }
+    .rev .text{ font-size:.97rem; line-height:1.46; color:#1f2937; }
+    .rev .shots{ display:flex; gap:10px; flex-wrap:wrap; margin-top:8px; }
+    .rev .shots img{ width:220px; max-width:100%; border-radius:11px; border:1px solid #eee; }
+    .rev .meta{ color:#9aa1ad; font-size:.9rem; margin-top:6px; }
+    .seller-reply{ background:#fbf9ff; padding:8px 12px; border-radius:8px; margin-top:8px; font-size:.98rem; color:#6b6b6b; border:1px solid var(--border); }
   </style>
 </head>
 <body>
@@ -165,6 +179,12 @@
 
     <section class="card gallery">
       <img src="gel_main.jpg" alt="เจลล้างหน้า 50ml ล้างรองพื้น คอนซีลเลอร์">
+      <div style="text-align:center;margin-top:14px">
+        <video autoplay muted loop playsinline controls>
+          <source src="intro_demo.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
+        </video>
+        <div style="font-size:.93rem;color:#888;margin-top:6px">คลิปแนะนำสินค้า – วิธีใช้ และผลลัพธ์หลังล้าง</div>
+      </div>
     </section>
 
     <section style="padding:0 16px 6px;color:#7a7a7a;font-size:.95rem">#เจลล้างหน้า #เจลล้างหน้าผิวแพ้ง่าย #ล้างรองพื้น #ล้างคอนซีลเลอร์ #pHbalanced #อ่อนโยน</section>
@@ -197,9 +217,51 @@
       <div style="color:#9a9a9a;font-size:.9rem">* ผลลัพธ์อาจแตกต่างกันไปในแต่ละบุคคล</div>
     </section>
 
+    <!-- Reviews Section -->
+    <section class="card reviews">
+      <h3><i class="fa-solid fa-comments"></i> รีวิวจากลูกค้าจริง</h3>
+
+      <div class="rev">
+        <div class="rev-head"><span class="stars">⭐⭐⭐⭐⭐</span><span class="author">P**m</span></div>
+        <p class="text">ล้างรองพื้นกับกันแดดออกเกลี้ยงมากค่ะ ผิวไม่เอี๊ยดตึง เหมาะกับผิวแพ้ง่ายสุด ๆ ใช้เช้า–เย็นแล้วไม่แห้ง</p>
+        <div class="shots">
+          <img src="review1.jpg" alt="รีวิวการใช้เจลล้างหน้า รูปที่ 1">
+        </div>
+        <div class="meta">02-09</div>
+        <div class="seller-reply"><b>จากร้านค้า:</b><br>ขอบคุณสำหรับรีวิวค่ะ ดีใจที่ชอบความอ่อนโยนของสูตรนี้นะคะ 💜</div>
+      </div>
+
+      <div class="rev">
+        <div class="rev-head"><span class="stars">⭐⭐⭐⭐⭐</span><span class="author">N**n</span></div>
+        <p class="text">โฟมไม่เยอะ แต่สะอาดจริง หลังล้างหน้านุ่ม ไม่แห้งลอก ใช้ลบคอนซีลเลอร์ได้ด้วย ชอบมาก</p>
+        <div class="shots">
+          <img src="review2a.jpg" alt="รีวิวเจลล้างหน้า รูปที่ 2a">
+          <img src="review2b.jpg" alt="รีวิวเจลล้างหน้า รูปที่ 2b">
+        </div>
+        <div class="meta">02-18</div>
+      </div>
+
+      <div class="rev">
+        <div class="rev-head"><span class="stars">⭐⭐⭐⭐⭐</span><span class="author">M**</span></div>
+        <p class="text">แพ็คดี ส่งไว ล้างกันแดดกันน้ำออกง่าย ไม่แสบหน้า กลิ่นสะอาด สดชื่น ใช้ต่อแน่นอน</p>
+        <div class="shots">
+          <img src="review3a.jpg" alt="รีวิวเจลล้างหน้า รูปที่ 3a">
+          <img src="review3b.jpg" alt="รีวิวเจลล้างหน้า รูปที่ 3b">
+        </div>
+        <div class="meta">03-05</div>
+      </div>
+    </section>
+
     <section class="card video">
       <video autoplay muted loop playsinline controls>
-        <source src="SaveTik.co_7516781232450014482.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
+        <source src="pack_ship.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
+      </video>
+      <div style="font-size:.96rem;color:#7a7a7a;margin-top:6px">คลิปแพ็คของจริง + ส่งของทุกวัน จันทร์–เสาร์ 🚚</div>
+    </section>
+
+    <section class="card video">
+      <video autoplay muted loop playsinline controls>
+        <source src="gel_review.mp4" type="video/mp4">ไม่สามารถเล่นวิดีโอนี้ได้
       </video>
       <div style="font-size:.93rem;color:#888;margin-top:6px">รีวิวการใช้งานจริง</div>
     </section>
@@ -230,6 +292,13 @@
     </div>
 
     <form class="form" id="orderForm" onsubmit="submitOrder(event)">
+      <!-- hidden fields to ensure Sheets receives numeric values with expected keys -->
+      <input type="hidden" name="product" id="productInput" />
+      <input type="hidden" name="pack_id" id="packIdInput" />
+      <input type="hidden" name="amount" id="amountInput" />
+      <input type="hidden" name="price" id="priceInput" />
+      <input type="hidden" name="qty" id="qtyInput" />
+      <input type="hidden" name="pack_label" id="packLabelInput" />
       <input type="hidden" name="product" id="productInput" />
       <input type="hidden" name="pack_id" id="packIdInput" />
       <label for="name">ชื่อ-นามสกุล</label>
@@ -257,7 +326,7 @@
 
 <script>
   // ===== CONFIG =====
-  const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzBFS1zxkrbiOpcP-1wYxALRfU3wJprPRT9KJju2wWEY2Rdd7OnJbFDTCErH-amUZrO/exec';
+  const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwLLvLNMk7QqkYIyPgN5efEqcpFzFtEYxuWiCBld5hQvlOf8t8v6vMI19A5q7Dk0-JE0g/exec';
 
   // แพ็ก (เรทราคา): 199 / 379 / 549 / 929
   const PACKS = [
@@ -305,6 +374,10 @@
     // hidden fields
     $('#productInput').value = `Gel Cleanser 50ml - ${selectedPack.label}`;
     $('#packIdInput').value = selectedPack.id;
+    $('#amountInput').value = String(selectedPack.price);
+    $('#priceInput').value = String(selectedPack.price);
+    $('#qtyInput').value = String(selectedPack.qty);
+    $('#packLabelInput').value = selectedPack.label;
   }
 
   // ===== Modal control =====
@@ -331,12 +404,16 @@
     const btn = $('#submitBtn');
     btn.disabled = true; btn.textContent = 'กำลังส่งข้อมูล...';
 
-    const fd = new FormData($('#orderForm'));
+    const formEl = $('#orderForm');
+    const fd = new FormData(formEl);
     const phone = $('#phone').value || '';
     if (phone && !phone.startsWith("'")) fd.set('phone', "'"+phone);
     fd.set('order_id', 'ORD-' + Date.now());
-    fd.set('amount', selectedPack.price);
-    fd.set('qty', selectedPack.qty);
+    // keep both common keys in case Apps Script expects either "amount" or "price"
+    fd.set('amount', String(selectedPack.price));
+    fd.set('price', String(selectedPack.price));
+    fd.set('qty', String(selectedPack.qty));
+    fd.set('pack_label', selectedPack.label);
 
     try{
       const res = await fetch(GOOGLE_SHEET_WEB_APP_URL, { method:'POST', body: fd });
